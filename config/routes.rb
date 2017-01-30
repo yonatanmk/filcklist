@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "movies#index"
-  resources :movies, only: [:index, :show]
+  resources :movies, only: :index
   namespace :api do
     namespace :v1 do
       resources :movies

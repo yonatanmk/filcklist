@@ -19,7 +19,6 @@ feature 'Log In' do
     fill_in 'Email', with: 'nonbody@gmail.com'
     fill_in 'Password', with: 'wrbdstdaetnat'
     click_button 'Log In'
-    # save_and_open_page
     expect(page).to have_content("Invalid Email or password")
     expect(page).to_not have_content("Signed in successfully.")
     expect(page).to have_content("Log In")
