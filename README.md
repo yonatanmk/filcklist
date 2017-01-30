@@ -8,4 +8,5 @@
 ### Features to be added
 * Forgotten Password email feature, find in project "Forgot Your Password?"
 * Edit Devise default flash messages "Invalid Email or password."
+  * Add "Bye! Your account has been successfully cancelled. We hope to see you again soon." message when you sign out
 * Devise Forms CSS: sign up, sign in, edit account
