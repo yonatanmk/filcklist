@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "movies#index"
-  resources :movies, only: :index
+  resources :movies, only: [:index, :show]
   namespace :api do
     namespace :v1 do
       resources :movies
@@ -17,6 +17,5 @@ Rails.application.routes.draw do
       resources :user_movies
     end
   end
-  get '*path', to: 'movies#index' # allows you to refresh the page, cant have other rails pages
-
+  get '*path', to: 'movies#index'
 end
