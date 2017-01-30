@@ -1,6 +1,6 @@
 require "rails_helper"
 
-xfeature "user edits their account" do
+feature "user edits their account" do
 
   before(:each) do
     visit root_path
@@ -10,11 +10,12 @@ xfeature "user edits their account" do
     fill_in 'user_password', with: 'password'
     fill_in 'Confirm Password', with: 'password'
     click_button 'Sign Up'
-    click_link 'Edit Account'
+    visit '/users/edit'
   end
 
   scenario "user can navigate to the edit account page" do
     expect(page).to have_content "Edit User"
+    expect(page).to have_content "Cancel my account"
   end
 
   scenario "user can edit username/email/password" do
@@ -25,31 +26,15 @@ xfeature "user edits their account" do
     fill_in "Current password", with: 'password'
     click_button "Update"
 
-
     expect(page).to have_content "Your account has been updated successfully"
-    click_link 'Edit Account'
+    visit '/users/edit'
     expect(find_field("Username").value).to eq "catman"
     expect(find_field("Email").value).to eq "fishman@gmail.com"
-    click_link 'Sign Out'
-    click_link 'Sign In'
-
-    fill_in 'Email', with: 'fishman@gmail.com'
-    fill_in 'Password', with: 'fishman'
-    click_button 'Sign In'
-
-    expect(page).to have_content("Whassup Dawg! Welcome Back!")
-    expect(page).to have_content("Sign Out")
-    expect(page).to_not have_content("Sign Up")
-    expect(page).to_not have_content("Sign In")
-    click_link 'Sign Out'
-    expect(page).to have_content("Sign Up")
-    expect(page).to have_content("Sign In")
-    expect(page).to_not have_content("Sign Out")
   end
 
   scenario "user can delete their account" do
-    click_link "Cancel yo account"
-    expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+    click_link "Cancel my account"
+    expect(page).to have_content "You need to sign in or sign up before continuing."
     expect(User.all.length).to eq(0)
   end
 end
