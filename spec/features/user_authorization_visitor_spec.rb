@@ -1,39 +1,23 @@
 require "rails_helper"
 
-xfeature "Visitor authorization" do
-  before(:each) do
-    user = FactoryGirl.create(:user)
-    FactoryGirl.create(:item, user: user)
-  end
+feature "Visitor authorization" do
 
   scenario "visitor navigates to the index page" do
-    item = Item.first
-
     visit root_path
-
-    expect(page).to have_content "Sign in to Submit a Thing"
-    expect(page).to have_content item.title
-    expect(page).to_not have_content "Submit a new 90s thing"
+    expect(page).to have_content "You need to sign in or sign up before continuing."
+    expect(page).to have_content "Log In"
+    expect(page).to_not have_content "Your Movies"
   end
-  scenario "visitor navigates to an item's show page" do
-    item = Item.first
-
-    visit root_path
-    click_link item.title
-
-    expect(page).to have_content item.title
-    expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
+  scenario "visitor navigates to a movie's show page" do
+    visit '/movies/272'
+    expect(page).to have_content "You need to sign in or sign up before continuing."
+    expect(page).to have_content "Log In"
+    expect(page).to_not have_content "Your Movies"
   end
-  scenario "visitor paths to an item's show page" do
-    item = Item.first
-
-    visit item_path(item)
-
-    expect(page).to have_content item.title
-    expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
+  scenario "visitor navigates to user profile page" do
+    visit '/user'
+    expect(page).to have_content "You need to sign in or sign up before continuing."
+    expect(page).to have_content "Log In"
+    expect(page).to_not have_content "Your Movies"
   end
 end
