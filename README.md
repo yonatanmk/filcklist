@@ -6,6 +6,6 @@
 
 
 ### Features to be added
-* Forgotten Password email feature
+* Forgotten Password email feature, find in project "Forgot Your Password?"
 * Edit Devise default flash messages "Invalid Email or password."
-* Devise Forms CSS
+* Devise Forms CSS: sign up, sign in, edit account
