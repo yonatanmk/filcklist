@@ -8,3 +8,4 @@
 ### Features to be added
 * Forgotten Password email feature
 * Edit Devise default flash messages "Invalid Email or password."
+* Devise Forms CSS
