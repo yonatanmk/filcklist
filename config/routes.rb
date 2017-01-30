@@ -17,6 +17,5 @@ Rails.application.routes.draw do
       resources :user_movies
     end
   end
-  get '*path', to: 'movies#index' # allows you to refresh the page, cant have other rails pages
-
+  get '*path', to: 'movies#index'
 end
