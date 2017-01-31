@@ -18,11 +18,16 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
   if (userMovie) {
     movie.status = userMovie.status;
   }
+  else {
+    movie.status = null;
+  }
+
   let boxHeader = (
     <div className='not-seen-header movie-box-header'>
       <p>Not Seen</p>
     </div>
   );
+
   if (movie.status) {
     switch (movie.status) {
       case 'seen':
