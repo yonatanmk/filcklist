@@ -29,6 +29,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem "vcr"
   gem "dotenv"
+  gem "webmock"
 end
 
 group :production do
