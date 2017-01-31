@@ -17,6 +17,7 @@ const App = ({user, children, dispatch}) => {
         </ul>
         <ul className="right">
           <li><Link to={`/user`}>Your Movies</Link ></li>
+          <li><a href="/users/edit">Account Settings</a></li>
           <li><a href="/users/sign_out" data-method="delete" >Sign Out</a></li>
         </ul>
       </nav>
