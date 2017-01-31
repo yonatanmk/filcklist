@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import * as api from '../api';
 import { addUserMovie } from '../actions';
 
-const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick}) => {
+const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick, handleDeleteButtonClick}) => {
   let className;
   if (page === "index") {
     className = "small-6 medium-4 large-2 columns index-box";
@@ -18,11 +18,16 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
   if (userMovie) {
     movie.status = userMovie.status;
   }
+  else {
+    movie.status = null;
+  }
+
   let boxHeader = (
     <div className='not-seen-header movie-box-header'>
       <p>Not Seen</p>
     </div>
   );
+
   if (movie.status) {
     switch (movie.status) {
       case 'seen':
@@ -81,6 +86,15 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     handleButtonClick(user, movie, event.target.value);
   };
 
+  let onDeleteButtonClick = () => {
+    handleDeleteButtonClick(user, movie);
+  };
+
+  let deleteButton;
+  if (userMovie) {
+    deleteButton = <button onClick={onDeleteButtonClick}>Remove Movie</button>;
+  }
+
   return (
     <div key={movie.id} className={className}>
       {boxHeader}
@@ -90,6 +104,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
       <button onClick={onButtonClick} value='add'>Already Seen</button>
       <button onClick={onButtonClick} value='like'>Like This Movie</button>
       <button onClick={onButtonClick} value='dislike'>Dislike This Movie</button>
+      {deleteButton}
       <div className='index-image'>
         <img src={image_url} />
       </div>

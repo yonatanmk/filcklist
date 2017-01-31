@@ -12,7 +12,6 @@ class Api::V1::UserMoviesController < ApplicationController
     @movie = Movie.find(user_movie_params[:movie_id])
     @status = user_movie_params[:status]
     if @user.movies.include?(@movie)
-      # binding.pry
       @userMovie = UserMovie.where(user: @user, movie: @movie).first
       @userMovie.update(status: @status)
     else
@@ -28,6 +27,11 @@ class Api::V1::UserMoviesController < ApplicationController
   end
 
   def destroy
+    @user = User.find(user_movie_params[:user_id])
+    @movie = Movie.find(user_movie_params[:movie_id])
+    @userMovie = UserMovie.where(user: @user, movie: @movie).first
+    @userMovie.destroy
+    render json: {}
   end
 
   private

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import IndexMovieBox from '../components/IndexMovieBox';
-import { addMovie, setUserMovie } from '../actions';
+import { setUserMovie, deleteUserMovie } from '../actions';
 import * as api from '../api';
 
 const mapStateToProps = (state, ownProps) => {
@@ -24,6 +24,9 @@ const mapDispatchToProps = (dispatch) => {
       .catch(error => {
         console.error(`Error in fetch: ${error.message}`);
       });
+    },
+    handleDeleteButtonClick: (user, movie) => {
+      dispatch(deleteUserMovie(user, movie));
     }
   };
 };
