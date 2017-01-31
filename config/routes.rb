@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root "movies#index"
-  get '*path', to: 'movies#index'
   resources :movies, only: :index
   namespace :api do
     namespace :v1 do
@@ -18,4 +17,5 @@ Rails.application.routes.draw do
       resources :user_movies, only: [:create, :destroy]
     end
   end
+  get '*path', to: 'movies#index'
 end
