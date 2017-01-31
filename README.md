@@ -11,4 +11,5 @@
   * Add "Bye! Your account has been successfully cancelled. We hope to see you again soon." message when you sign out
 * Devise Forms CSS: sign up, sign in, edit account
 * Factory Girl in controller tests
-* remove unnecessary FactoryGirl and test
+* remove unnecessary FactoryGirl and test 
+# ADD NAVBAR TO EDIT ACCOUNT PAGE 
