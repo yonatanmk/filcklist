@@ -1,3 +1,3 @@
 export {fetchMovies, fetchMovie, addMovie} from './movies';
-export {setUser} from './users';
+export {setUser, setUsers} from './users';
 export {addUserMovie, deleteUserMovie} from './userMovies';

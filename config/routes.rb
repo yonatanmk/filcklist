@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :users, only: :index
+      resources :users, only: [:index, :show] do
+        collection do
+          get :current
+        end
+      end
     end
   end
   namespace :api do
@@ -17,5 +21,6 @@ Rails.application.routes.draw do
       resources :user_movies, only: [:create, :destroy]
     end
   end
+
   get '*path', to: 'movies#index'
 end

@@ -1,7 +1,35 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-  describe "GET #show" do
+  describe "GET #index" do
+    let(:tj) {
+      User.create(
+        email: "tjdetweiler@recess.com",
+        username: "TJ",
+        password: "123456"
+      )
+    }
+
+    it "should return all users without private info" do
+      finster = User.create(
+        email: "finster@recess.com",
+        username: "Ms. Finster",
+        password: "123456"
+      )
+      sign_in tj
+      get :index
+      json = JSON.parse(response.body)
+      expect(json.length).to eq(2)
+      expect(json[1]["id"]).to eq(tj.id)
+      expect(json[1]["username"]).to eq(tj.username)
+      expect(json[1]["email"]).to_not eq(tj.email)
+      expect(json[0]["id"]).to eq(finster.id)
+      expect(json[0]["username"]).to eq(finster.username)
+      expect(json[0]["email"]).to_not eq(finster.email)
+    end
+  end
+
+  describe "GET #current" do
     let(:tj) {
       User.create(
         email: "tjdetweiler@recess.com",
@@ -36,7 +64,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
     it "should return the current user with appropriate info" do
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["info"]["id"]).to eq(tj.id)
       expect(json["info"]["username"]).to eq(tj.username)
@@ -48,7 +76,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       UserMovie.create(user: tj, movie: batman)
       UserMovie.create(user: tj, movie: superman)
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["movies"].length).to eq(2)
       expect(json["movies"][0]["title"]).to eq(batman.title)
@@ -63,7 +91,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       UserMovie.create(user: tj, movie: batman, status: 'like')
       UserMovie.create(user: tj, movie: superman, status: 'want')
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["movies"].length).to eq(2)
       expect(json["movies"][0]["title"]).to eq(batman.title)

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <title>FlickList</title>
     <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
@@ -19,7 +16,11 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <% end %>
     </div>
+
     <h1><%= current_user ? current_user.username.capitalize : "" %> is currently logged in. </h1>
-    <%= yield %>
+
+    <div class='content'>
+      <%= yield %>
+    </div>
   </body>
 </html>
