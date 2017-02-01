@@ -7,7 +7,7 @@ class MovieShow extends Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.movies.length > 0) {
       let movie = this.props.movies.find((movie)=>{return movie.id == this.props.params.id;});
       this.props.dispatch(setSelectedMovieAction(movie));

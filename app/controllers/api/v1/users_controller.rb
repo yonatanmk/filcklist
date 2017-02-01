@@ -2,21 +2,10 @@ class Api::V1::UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    # binding.pry
-    # @user_movies = current_user.user_movies
-    # @movies = current_user.movies.map do |movie|
-    #   @user_movies.each do |user_movie|
-    #     if movie.id == user_movie.movie_id
-    #       movie.status = user_movie.status
-    #     end
-    #   end
-    #   movie
-    # end
-    # @user = {
-    #   info: current_user,
-    #   movies: @movies
-    # }
-    # render json: @user
+    @users = User.all.map do |user|
+      {id: user.id, username: user.username}
+    end
+    render json: @users
   end
 
   def show

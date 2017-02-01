@@ -5,6 +5,7 @@ import App from '../components/App';
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user,
+    users: state.users,
     children: ownProps.children
   };
 };
