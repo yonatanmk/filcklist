@@ -1,6 +1,34 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::UsersController, type: :controller do
+  describe "GET #index" do
+    let(:tj) {
+      User.create(
+        email: "tjdetweiler@recess.com",
+        username: "TJ",
+        password: "123456"
+      )
+    }
+
+    it "should return all users without private info" do
+      finster = User.create(
+        email: "finster@recess.com",
+        username: "Ms. Finster",
+        password: "123456"
+      )
+      sign_in tj
+      get :index
+      json = JSON.parse(response.body)
+      expect(json.length).to eq(2)
+      expect(json[1]["id"]).to eq(tj.id)
+      expect(json[1]["username"]).to eq(tj.username)
+      expect(json[1]["email"]).to_not eq(tj.email)
+      expect(json[0]["id"]).to eq(finster.id)
+      expect(json[0]["username"]).to eq(finster.username)
+      expect(json[0]["email"]).to_not eq(finster.email)
+    end
+  end
+
   describe "GET #current" do
     let(:tj) {
       User.create(
