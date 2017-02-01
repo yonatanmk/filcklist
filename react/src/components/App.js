@@ -31,7 +31,7 @@ class App extends Component {
     .map((user)=>{
       return (
         <div key={user.id}>
-          <p>{user.username}</p>
+          <Link to={`/users/${user.id}`} data-close="exampleModal1"><p>{user.username}</p></Link >
         </div>
       );
     });
