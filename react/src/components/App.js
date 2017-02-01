@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     let userList = this.props.users.filter((otherUser)=>{
-      return otherUser.username.search(this.props.userQuery) > -1 && otherUser.id !== this.props.user.info.id;
+      return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
     }, this)
     .map((user)=>{
       return (

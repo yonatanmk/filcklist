@@ -85,9 +85,23 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     handleDeleteButtonClick(user, movie);
   };
 
+
   let deleteButton;
   if (userMovie) {
     deleteButton = <button onClick={onDeleteButtonClick}>Remove Movie</button>;
+  }
+
+  let buttonPad;
+  if (page !== 'other') {
+    buttonPad = (
+      <div>
+        <button onClick={onButtonClick} value='want'>Want to See</button>
+        <button onClick={onButtonClick} value='add'>Already Seen</button>
+        <button onClick={onButtonClick} value='like'>Like This Movie</button>
+        <button onClick={onButtonClick} value='dislike'>Dislike This Movie</button>
+        {deleteButton}
+      </div>
+    );
   }
 
   return (
@@ -95,11 +109,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
       {boxHeader}
       <p>{movie.title}</p>
       <Link to={`/movies/${movie.id}`}><button>Show Movie</button></Link>
-      <button onClick={onButtonClick} value='want'>Want to See</button>
-      <button onClick={onButtonClick} value='add'>Already Seen</button>
-      <button onClick={onButtonClick} value='like'>Like This Movie</button>
-      <button onClick={onButtonClick} value='dislike'>Dislike This Movie</button>
-      {deleteButton}
+      {buttonPad}
       <div className='index-image'>
         <img src={image_url} />
       </div>
