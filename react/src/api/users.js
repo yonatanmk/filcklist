@@ -1,5 +1,5 @@
 export const setUser = () => {
-  return fetch(`/api/v1/users`, {
+  return fetch(`/api/v1/users/current`, {
     credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json' }
   })

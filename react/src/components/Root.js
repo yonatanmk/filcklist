@@ -6,6 +6,7 @@ import UserPageContainer from '../containers/UserPageContainer';
 import MovieIndex from './MovieIndex';
 import MovieShowContainer from '../containers/MovieShowContainer';
 import RecommendationPageContainer from '../containers/RecommendationPageContainer';
+import UserSearchPageContainer from '../containers/UserSearchPageContainer';
 
 
 const Root = ({ store }) => (
@@ -14,7 +15,6 @@ const Root = ({ store }) => (
       <Redirect from="/" to="/movies" />
       <Route path="/" component={AppContainer} >
         <Route path="/user" component={UserPageContainer} />
-        <Route path="/user" component={RecommendationPageContainer} />
         <Route path="/movies" component={MovieIndex} />
         <Route path="/movies/:id" component={MovieShowContainer} />
       </Route>
@@ -23,3 +23,6 @@ const Root = ({ store }) => (
 );
 
 export default Root;
+
+// <Route path="/user" component={RecommendationPageContainer} />
+// <Route path="/usersearch/:query" component={UserSearchPageContainer} />
