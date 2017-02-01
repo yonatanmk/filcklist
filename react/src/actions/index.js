@@ -2,6 +2,7 @@ export {default as setMovieData} from './setMovieData';
 export {default as setSelectedMovie} from './setSelectedMovie';
 export {default as setUser} from './setUser';
 export {default as setUsers} from './setUsers';
+export {default as setSelectedUser} from './setSelectedUser';
 export {default as setUserMovie} from './setUserMovie';
 export {default as deleteUserMovie} from './deleteUserMovie';
 
@@ -43,5 +44,12 @@ export const setUserQueryAction = (body) => {
   return {
     type: 'SET USER QUERY',
     body
+  };
+};
+
+export const setSelectedUserAction = (user) => {
+  return {
+    type: 'SET SELECTED USER',
+    user
   };
 };
