@@ -18,6 +18,15 @@ let users = (state = [], action ) => {
   }
 };
 
+let selectedUser = (state = null, action ) => {
+  switch (action.type) {
+    case 'SET SELECTED USER':
+      return action.user;
+    default:
+      return state;
+  }
+};
+
 let userQuery = (state = null, action ) => {
   switch (action.type) {
     case 'SET USER QUERY':
@@ -54,6 +63,6 @@ let firstSearch = (state = true, action ) => {
   }
 };
 
-const appReducer = combineReducers({user, users, userQuery, movies, selectedMovie, firstSearch});
+const appReducer = combineReducers({user, users, userQuery, selectedUser, movies, selectedMovie, firstSearch});
 
 export default appReducer;

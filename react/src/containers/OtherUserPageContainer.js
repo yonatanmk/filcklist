@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserPage from '../components/UserPage';
+import OtherUserPage from '../components/OtherUserPage';
 
 const mapStateToProps = (state) => {
   return {
+    selectedUser: state.selectedUser,
     user: state.user
   };
 };
@@ -17,7 +18,7 @@ const mapStateToProps = (state) => {
 //   };
 // };
 
-const UserPageContainer = connect(mapStateToProps)(UserPage);
+const OtherUserPageContainer = connect(mapStateToProps, null)(OtherUserPage);
 
 
-export default UserPageContainer;
+export default OtherUserPageContainer;

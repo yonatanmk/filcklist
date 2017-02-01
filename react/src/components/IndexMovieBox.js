@@ -8,18 +8,15 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
   if (page === "index") {
     className = "small-6 medium-4 large-2 columns index-box";
   }
-  else if (page === "user") {
+  else if (page === "user" || page === "other") {
     className = "small-12 medium-8 large-4 columns index-box";
   }
   if (movie == movies[movies.length-1]) {
     className += " end";
   }
   let userMovie = userMovies.find((userMovie)=>{return userMovie.id == movie.id;});
-  if (userMovie) {
+  if (userMovie && (page === 'user' || page == 'index')) {
     movie.status = userMovie.status;
-  }
-  else {
-    movie.status = null;
   }
 
   let boxHeader = (
@@ -72,8 +69,6 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
         break;
     }
   }
-
-
 
   let image_url;
   if (movie.poster_path) {
