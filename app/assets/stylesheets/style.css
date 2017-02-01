@@ -7,6 +7,23 @@ overflow-x:hidden;
 overflow-y: hidden;
 }
 
+h1, p {
+  margin: 0px
+}
+
+/* Nav Bar */
+.top-bar {
+  padding: 0px 8px 0px 8px;
+}
+
+.menu-text {
+  padding: 0px 16px 0px 16px;
+}
+
+.top-bar a {
+  margin-top: 15px;
+}
+
 .index-box {
   height: 445px;
   border-style: solid;
