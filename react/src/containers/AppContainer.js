@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user,
     users: state.users,
+    userQuery: state.userQuery,
     children: ownProps.children
   };
 };

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-  describe "GET #show" do
+  describe "GET #current" do
     let(:tj) {
       User.create(
         email: "tjdetweiler@recess.com",
@@ -36,7 +36,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
     it "should return the current user with appropriate info" do
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["info"]["id"]).to eq(tj.id)
       expect(json["info"]["username"]).to eq(tj.username)
@@ -48,7 +48,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       UserMovie.create(user: tj, movie: batman)
       UserMovie.create(user: tj, movie: superman)
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["movies"].length).to eq(2)
       expect(json["movies"][0]["title"]).to eq(batman.title)
@@ -63,7 +63,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       UserMovie.create(user: tj, movie: batman, status: 'like')
       UserMovie.create(user: tj, movie: superman, status: 'want')
       sign_in tj
-      get :index
+      get :current
       json = JSON.parse(response.body)
       expect(json["movies"].length).to eq(2)
       expect(json["movies"][0]["title"]).to eq(batman.title)

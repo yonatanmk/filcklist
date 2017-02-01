@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { setUser, setUsers } from '../actions';
+import { setUser, setUsers, setUserQueryAction } from '../actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.handleUserSearchChange = this.handleUserSearchChange.bind(this);
   }
 
   componentDidMount() {
@@ -16,11 +18,16 @@ class App extends Component {
     }
   }
 
+  handleUserSearchChange (event) {
+    let body = event.target.value;
+    if (body === "") {body = null;}
+    this.props.dispatch(setUserQueryAction(body));
+  }
+
   render() {
     let userList = this.props.users.filter((otherUser)=>{
-      // debugger;
-      return otherUser.id !== this.props.user.info.id;
-    })
+      return otherUser.username.search(this.props.userQuery) > -1 && otherUser.id !== this.props.user.info.id;
+    }, this)
     .map((user)=>{
       return (
         <div key={user.id}>
@@ -49,7 +56,7 @@ class App extends Component {
           <button className="close-button" data-close="exampleModal1">
             <span aria-hidden="true">&times;</span>
           </button>
-          <input className='user-search-bar'type="search" placeholder="Search" />
+          <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
           {userList}
         </div>
         {this.props.children}

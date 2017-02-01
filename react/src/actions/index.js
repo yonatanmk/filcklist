@@ -38,3 +38,10 @@ export const setUsersAction = (users) => {
     users
   };
 };
+
+export const setUserQueryAction = (body) => {
+  return {
+    type: 'SET USER QUERY',
+    body
+  };
+};
