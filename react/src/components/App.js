@@ -25,16 +25,20 @@ class App extends Component {
   }
 
   render() {
-    let userList = this.props.users.filter((otherUser)=>{
-      return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
-    }, this)
-    .map((user)=>{
-      return (
-        <div key={user.id}>
-          <Link to={`/users/${user.id}`} data-close="exampleModal1"><p>{user.username}</p></Link >
-        </div>
-      );
-    });
+    let userList;
+    if (this.props.userQuery) {
+      userList = this.props.users.filter((otherUser)=>{
+        return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
+      }, this)
+      .map((user)=>{
+        return (
+          <div key={user.id}>
+            <Link to={`/users/${user.id}`} data-close="exampleModal1"><p>{user.username}</p></Link >
+          </div>
+        );
+      });
+    }
+
     return (
       <div>
         <div className="top-bar">

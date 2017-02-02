@@ -11,14 +11,19 @@
     <%= csrf_meta_tags %>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One" rel="stylesheet">
   </head>
 
   <body>
+
     <div class='error-msg'>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <% end %>
     </div>
     <%= yield %>
+    <div id="background">
+      <img src="/assets/film.jpeg" class="stretch" alt="" />
+    </div>
   </body>
 </html>

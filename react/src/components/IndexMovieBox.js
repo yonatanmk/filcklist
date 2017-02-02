@@ -6,10 +6,10 @@ import { addUserMovie } from '../actions';
 const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick, handleDeleteButtonClick}) => {
   let className;
   if (page === "index") {
-    className = "small-6 medium-4 large-2 columns index-box";
+    className = "small-12 medium-6 large-3 columns index-box";
   }
   else if (page === "user" || page === "other") {
-    className = "small-12 medium-8 large-4 columns index-box";
+    className = "small-12 medium-12 large-6 columns index-box";
   }
   if (movie == movies[movies.length-1]) {
     className += " end";
