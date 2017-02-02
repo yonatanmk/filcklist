@@ -12,5 +12,6 @@
 * Devise Forms CSS: sign up, sign in, edit account
 * Factory Girl in controller tests
 * remove unnecessary FactoryGirl and test 
+* fix phone view
 
 # ADD NAVBAR TO EDIT ACCOUNT PAGE 
