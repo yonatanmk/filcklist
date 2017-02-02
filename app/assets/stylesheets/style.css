@@ -3,10 +3,6 @@
   src:url('MovieTimes.ttf');
 }
 
-body {
-  font-family: 'Movie Times'
-}
-
 html {
   width:100vw;
   overflow-x:hidden;
@@ -37,7 +33,27 @@ body {
   z-index: 1 !important;
 }
 
+.content {
+  width: 90%;
+  margin: auto;
+}
+
 /* Nav Bar */
+.top-bar-spacer {
+  height: 76px;
+}
+
+@media (max-width: 949px) {
+  .top-bar-spacer {
+    height: 145px;
+  }
+}
+@media (max-width: 640px) {
+  .top-bar-spacer {
+    height: 110px;
+  }
+}
+
 .top-bar {
   padding: 0px 8px 0px 8px;
   font-family: 'Movie Times';
@@ -45,7 +61,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /*position: fixed;*/
+  position: fixed;
 }
 
 .menu-text {
@@ -101,6 +117,11 @@ body {
   background-color: transparent;
 }
 
+.account-menu-button {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
 /* Devise Forms */
 
 .devise-box {
@@ -125,6 +146,12 @@ body {
   border-width: 3px;
   border-color: black;
   /*overflow: hidden;*/
+}
+
+/*Index page*/
+
+.index-search-bar {
+  font-family: 'Movie Times'
 }
 
 button {
@@ -207,5 +234,9 @@ ul {
 }
 
 .account-dropdown {
+  border-style: none;
+}
 
+.account-dropdown * {
+  margin-top: -10px;
 }

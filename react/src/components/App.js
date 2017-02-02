@@ -47,7 +47,7 @@ class App extends Component {
 
     return (
       <div>
-        <div className="top-bar">
+        <div className="top-bar small-12 columns">
           <div className="top-bar-left">
             <ul className="menu" >
               <li className="menu-text"><h1><a href="/">fLICKlIST</a></h1></li>
@@ -57,10 +57,10 @@ class App extends Component {
             <ul className="dropdown menu" data-dropdown-menu>
               <li><a data-open="exampleModal1" onClick={this.handleSearchButtonClick}>Users</a></li>
               <li>
-                <a href="#">Account</a>
+                <a href="#" className='account-menu-button'>Account</a>
                 <ul className="menu vertical account-dropdown">
                   <li><Link to={`/user`}>Your Movies</Link ></li>
-                  <li><a href="/users/edit">Account Settings</a></li>
+                  <li><a href="/users/edit">Settings</a></li>
                   <li><a href="/users/sign_out" data-method="delete" >Sign Out</a></li>
                 </ul>
               </li>
@@ -74,6 +74,7 @@ class App extends Component {
           <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
           {userList}
         </div>
+        <div className='top-bar-spacer'></div>
         {this.props.children}
       </div>
     );
