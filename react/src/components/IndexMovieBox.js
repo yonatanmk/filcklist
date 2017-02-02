@@ -4,7 +4,9 @@ import * as api from '../api';
 import { addUserMovie } from '../actions';
 
 const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick, handleDeleteButtonClick}) => {
-  let className, innerClassName, wantMovies, notWantMovies;
+  let className, innerClassName;
+  let wantMovies = [];
+  let notWantMovies = [];
   if (page === "index") {
     className = "small-12 medium-6 large-3 columns index-box";
   }

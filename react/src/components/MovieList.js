@@ -4,7 +4,7 @@ import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
 
 const MovieList = ({movies, firstSearch, handleMovieClick, handleAddUserMovieClick}) => {
   if (!firstSearch && movies.length == 0) {
-    return <p>No Results</p>;
+    return <p></p>;
   }
   else if (movies.length == 0) {
     return <div className='movieList-filler'></div>;

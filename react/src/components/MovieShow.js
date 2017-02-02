@@ -28,6 +28,7 @@ class MovieShow extends Component {
         <div className='show-page'>
           <h1>{movie.title}</h1>
           <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
+          <p>Release Date: {movie.release_date}</p>
           <p>{movie.overview}</p>
         </div>
       );
