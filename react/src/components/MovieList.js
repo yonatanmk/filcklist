@@ -6,6 +6,9 @@ const MovieList = ({movies, firstSearch, handleMovieClick, handleAddUserMovieCli
   if (!firstSearch && movies.length == 0) {
     return <p>No Results</p>;
   }
+  else if (movies.length == 0) {
+    return <div className='movieList-filler'></div>;
+  }
   else {
     movies = movies.map((movie) => {
       return (
