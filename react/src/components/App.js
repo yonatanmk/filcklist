@@ -75,7 +75,9 @@ class App extends Component {
           {userList}
         </div>
         <div className='top-bar-spacer'></div>
-        {this.props.children}
+        <div className='content'>
+          {this.props.children}
+        </div>
       </div>
     );
   }

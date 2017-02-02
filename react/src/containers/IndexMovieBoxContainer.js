@@ -5,8 +5,14 @@ import { setUserMovie, deleteUserMovie } from '../actions';
 import * as api from '../api';
 
 const mapStateToProps = (state, ownProps) => {
+  let movies;
+  if (ownProps.page == 'index') {
+    movies = state.movies;
+  } else {
+    movies = ownProps.movies;
+  }
   return {
-    movies: state.movies,
+    movies,
     movie: ownProps.movie,
     user: state.user.info,
     userMovies: state.user.movies,

@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'

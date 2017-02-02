@@ -18,7 +18,6 @@ feature 'Sign Up' do
     click_link 'Sign Up'
     click_button 'Sign Up'
 
-    expect(page).to have_content("Something Went Wrong.")
     expect(page).to have_content("Please Specify A Username.")
     expect(page).to have_content("Please Specify An Email.")
     expect(page).to have_content("Please Specify A Password.")
@@ -34,7 +33,6 @@ feature 'Sign Up' do
     fill_in 'Confirm Password', with: 'not password'
     click_button 'Sign Up'
 
-    expect(page).to have_content("Something Went Wrong.")
     expect(page).to have_content("Password Does Not Match")
   end
 
@@ -44,7 +42,6 @@ feature 'Sign Up' do
     fill_in 'Email', with: 'birdie@gmailcom'
     click_button 'Sign Up'
 
-    expect(page).to have_content("Something Went Wrong.")
     expect(page).to have_content("Please Specify A Valid Email.")
     expect(page).to_not have_content("Sign Out")
   end
@@ -55,7 +52,6 @@ feature 'Sign Up' do
     fill_in 'user_password', with: '123'
     click_button 'Sign Up'
 
-    expect(page).to have_content("Something Went Wrong.")
     expect(page).to have_content("Password Is Too Short (6 Characters Minimum)")
     expect(page).to_not have_content("Sign Out")
   end

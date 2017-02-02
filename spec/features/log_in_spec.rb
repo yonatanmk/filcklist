@@ -9,7 +9,6 @@ feature 'Log In' do
     fill_in 'Password', with: user.password
     click_button 'Log In'
 
-    expect(page).to have_content("Signed in successfully.")
     expect(page).to_not have_content("Sign Up")
     expect(page).to_not have_content("Log In")
   end
@@ -20,7 +19,6 @@ feature 'Log In' do
     fill_in 'Password', with: 'wrbdstdaetnat'
     click_button 'Log In'
     expect(page).to have_content("Invalid Email or password")
-    expect(page).to_not have_content("Signed in successfully.")
     expect(page).to have_content("Log In")
   end
 
@@ -32,7 +30,6 @@ feature 'Log In' do
     fill_in 'Password', with: 'wrbdstdaetnat'
     click_button 'Log In'
     expect(page).to have_content("Invalid Email or password")
-    expect(page).to_not have_content("Signed in successfully.")
     expect(page).to have_content("Log In")
   end
 

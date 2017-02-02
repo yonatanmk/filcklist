@@ -25,7 +25,7 @@ class MovieShow extends Component {
     if (this.props.selectedMovie){
       let movie = this.props.selectedMovie;
       return(
-        <div>
+        <div className='show-page'>
           <h1>{movie.title}</h1>
           <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
           <p>{movie.overview}</p>
