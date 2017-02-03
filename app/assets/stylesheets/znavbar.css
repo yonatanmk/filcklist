@@ -14,6 +14,10 @@
   }
 }
 
+/*.top-bar-background {
+  background-image: url(/assets/film-large.jpeg);
+}*/
+
 .top-bar {
   padding: 0px 8px 0px 8px;
   font-family: 'Movie Times';
@@ -22,16 +26,19 @@
   background-attachment: fixed;
   position: fixed;
   z-index: 1000;
-  background: #CEA33B; /* For browsers that do not support gradients */
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
+  background: -webkit-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
   /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
+  background: -o-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
   /* For Fx 3.6 to 15 */
-  background: -moz-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
+  background: -moz-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
   /* Standard syntax */
-  background: linear-gradient(to right, #E6CB74,#6E4517, #5E1B6B, #996F27,#CBA13D,#C29635,#5E1B6B,#936517);
+  background: linear-gradient(to right, rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background-size: 100%;
 }
+
+/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('http://www.skrenta.com/images/stackoverflow.jpg') no-repeat;*/
+
+/* 494749 to B1B1B1*/
 
 .menu-text {
   padding: 0px 16px 0px 0px;
@@ -40,46 +47,20 @@
 .menu-text a {
   font-family: 'Movie Times';
   color: black;
-  background-color: #F8F3F7;
-  padding: 10px 10px 0px 10px;
-  border-radius: 10px;
-  border-style: groove;
-  border-color: black;
 }
 
 .menu-text a:hover {
-  background-color: #E2DDE1;
+  color: #DCD0D2;
 }
 
 .menu-text h1 {
   margin-top: 7px;
 }
 
-.top-bar a {
-  margin-top: 10px;
-  color: black;
-  /*background-color: #F8F3F7;*/
-  border-radius: 10px;
-  border-style: groove;
-  border-color: black;
-  margin-right: 20px;
-  background: #E0E0E0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
-}
-
 .top-bar {
   font-size: 30px;
-}
-
-.top-bar a:hover, .showButton {
-  background: #868686; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
+  border-bottom: solid;
+  border-color: black;
 }
 
 .top-bar ul {

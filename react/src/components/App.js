@@ -84,24 +84,4 @@ class App extends Component {
 }
 
 
-// const App = ({user, users, children, dispatch}) => {
-//
-//
-//   let checkCurrentUser = (otherUser) => {
-//     return otherUser.id === user.id;
-//   };
-//
-//   let userList = users.map((otherUser)=>{
-//     return (
-//       <div key={otherUser.id}>
-//         <p>{otherUser.username}</p>
-//       </div>
-//     );
-//   });
-//
-//
-//
-//
-// };
-
 export default App;
