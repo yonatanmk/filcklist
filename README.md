@@ -13,5 +13,6 @@
 * Factory Girl in controller tests
 * remove unnecessary FactoryGirl and test 
 * fix phone view
+* refactor movieboxes to use different containers, relocate logic to containers
 
 # ADD NAVBAR TO EDIT ACCOUNT PAGE 
