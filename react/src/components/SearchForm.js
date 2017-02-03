@@ -7,7 +7,7 @@ const SearchForm = ({handleSearchFormSubmit}) => {
       <div className='search-form'>
         <div className='row'>
           <div className='small-9 columns'>
-            <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder='Please Enter a Movie'/>
+            <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder='Search Movies'/>
           </div>
           <div className='small-3 columns'>
             <button className='button search-button' onClick={() => {

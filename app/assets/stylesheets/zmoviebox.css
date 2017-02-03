@@ -1,5 +1,5 @@
 .index-box {
-  height: 445px;
+  /*height: 445px;*/
   /*border-style: solid;
   border-width: 3px;
   border-color: black;*/
@@ -12,7 +12,6 @@
   border-width: 3px;
   border-color: black;
   border-radius: 10px;
-  height: 430px;
   overflow: hidden;
   padding: 10px;
 }
@@ -29,17 +28,18 @@
   width: 25%;
 }
 
-img {
-  height: 260px
-}
-
-ul {
-  list-style: none;
-}
-
-.index-image {
-  height: 195px;
+.title-image {
+  margin-top: 10px;
+  /*margin-bottom: 10px;*/
+  height: 240px;
   overflow: hidden;
+}
+
+.inner-movie-box img {
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
 }
 
 .movie-box-header {
@@ -64,31 +64,6 @@ ul {
   font-weight: bold;
   text-align: center;
 }
-
-/*.gray button {
-  border-color: black;
-  border-style: groove;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.red button {
-  border-color: black;
-  border-style: groove;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.blue button {
-  border-color: black;
-  border-style: groove;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.green button {
-  border-color: black;
-  border-style: groove;
-  border-width: 3px;
-  border-radius: 5px;
-}*/
 
 .inner-movie-box button {
   color: black;

@@ -23,6 +23,7 @@
 .devise-box input{
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  margin-bottom: 8px;
 }
 
 .devise-box input:focus{

@@ -150,9 +150,11 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     <div key={movie.id} className={className}>
       <div className={`inner-movie-box ${innerClassName}`}>
         {boxHeader}
-        <h4>{movie.title}</h4>
-        <div className='index-image'>
-          <img src={image_url} />
+        <div className='title-image'>
+          <h4>{movie.title}</h4>
+          <div className='index-image'>
+            <img src={image_url} />
+          </div>
         </div>
         {buttonPad}
       </div>
