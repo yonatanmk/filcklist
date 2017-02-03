@@ -27,9 +27,15 @@ class MovieShow extends Component {
       return(
         <div className='show-page'>
           <h1>{movie.title}</h1>
-          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
-          <p>Release Date: {movie.release_date}</p>
-          <p>{movie.overview}</p>
+          <div className='row'>
+            <div className='small-6 columns'>
+              <h5>Release Date: {movie.release_date}</h5>
+              <p>{movie.overview}</p>
+            </div>
+            <div className='small-6 columns'>
+              <img src={`http://image.tmdb.org/t/p/w300/${movie.poster_path}`} />
+            </div>
+          </div>
         </div>
       );
     } else {

@@ -106,10 +106,18 @@ body {
   border-width: 3px;
   border-radius: 5px;
   margin-top: 20px;
-  text-align: center;
   color: white;
+  padding: 20px;
+}
+
+.show-page h1 {
+  text-align: center;
+}
+
+.show-page * {
+  font-family: 'Raleway', sans-serif;
 }
 
 .show-page img {
-
+  float: right;
 }
