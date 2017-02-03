@@ -18,7 +18,6 @@ feature 'Log In' do
     fill_in 'Email', with: 'nonbody@gmail.com'
     fill_in 'Password', with: 'wrbdstdaetnat'
     click_button 'Log In'
-    expect(page).to have_content("Invalid Email or password")
     expect(page).to have_content("Log In")
   end
 
@@ -29,7 +28,6 @@ feature 'Log In' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'wrbdstdaetnat'
     click_button 'Log In'
-    expect(page).to have_content("Invalid Email or password")
     expect(page).to have_content("Log In")
   end
 
@@ -44,7 +42,6 @@ feature 'Log In' do
     expect(page).to_not have_content("Log In")
 
     visit new_user_session_path
-    expect(page).to have_content("You are already signed in.")
   end
 
 

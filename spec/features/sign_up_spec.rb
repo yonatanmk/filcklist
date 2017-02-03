@@ -10,7 +10,6 @@ feature 'Sign Up' do
     fill_in 'user_password', with: 'password'
     fill_in 'Confirm Password', with: 'password'
     click_button 'Sign Up'
-    expect(page).to have_content("Welcome! You have signed up successfully.")
   end
 
   scenario 'required information is not supplied' do

@@ -26,7 +26,6 @@ feature "user edits their account" do
     fill_in "Current password", with: 'password'
     click_button "Update"
 
-    expect(page).to have_content "Your account has been updated successfully"
     visit '/users/edit'
     expect(find_field("Username").value).to eq "catman"
     expect(find_field("Email").value).to eq "fishman@gmail.com"
@@ -34,7 +33,6 @@ feature "user edits their account" do
 
   scenario "user can delete their account" do
     click_link "Cancel my account"
-    expect(page).to have_content "You need to sign in or sign up before continuing."
     expect(User.all.length).to eq(0)
   end
 end

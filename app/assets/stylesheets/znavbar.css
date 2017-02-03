@@ -14,10 +14,6 @@
   }
 }
 
-/*.top-bar-background {
-  background-image: url(/assets/film-large.jpeg);
-}*/
-
 .top-bar {
   padding: 0px 8px 0px 8px;
   font-family: 'Movie Times';
@@ -26,19 +22,15 @@
   background-attachment: fixed;
   position: fixed;
   z-index: 1000;
-  background: -webkit-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background: -webkit-linear-gradient(left,rgba(0,0,0, 0.7), rgba(0,0,0, 0.3), rgba(0,0,0, 0.7)), url(/assets/film-large.jpeg);
   /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background: -o-linear-gradient(left,rgba(0,0,0, 0.7), rgba(0,0,0, 0.3), rgba(0,0,0, 0.7)), url(/assets/film-large.jpeg);
   /* For Fx 3.6 to 15 */
-  background: -moz-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background: -moz-linear-gradient(left,rgba(0,0,0, 0.7), rgba(0,0,0, 0.3), rgba(0,0,0, 0.7)), url(/assets/film-large.jpeg);
   /* Standard syntax */
-  background: linear-gradient(to right, rgba(0,0,0, 0.5), rgba(0,0,0, 0.3), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background: linear-gradient(to right, rgba(0,0,0, 0.7), rgba(0,0,0, 0.3), rgba(0,0,0, 0.7)), url(/assets/film-large.jpeg);
   background-size: 100%;
 }
-
-/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('http://www.skrenta.com/images/stackoverflow.jpg') no-repeat;*/
-
-/* 494749 to B1B1B1*/
 
 .menu-text {
   padding: 0px 16px 0px 0px;
