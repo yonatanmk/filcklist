@@ -100,7 +100,7 @@ body {
 }
 
 .show-page {
-  background-color: rgba(0, 0, 0, 0.7);
+  /*background-color: rgba(0, 0, 0, 0.7);*/
   border-color: black;
   border-style: solid;
   border-width: 3px;
@@ -120,4 +120,32 @@ body {
 
 .show-page img {
   float: right;
+}
+
+.movie-show-text {
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+}
+
+.movie-show-text .overview {
+  text-align: justify;
+  font-family: 'Raleway', sans-serif;
+}
+
+.back-button-box {
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+}
+
+.show-page a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#white-back {
+  color: white;
+}
+
+#black-back {
+  color: black;
 }
