@@ -21,7 +21,6 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     wantMovies = movies.filter((movie)=>{return movie.status === 'want';});
     notWantMovies = movies.filter((movie)=>{return movie.status !== 'want';});
   }
-  // debugger;
   if (
     movie == movies[movies.length-1] ||
     movie == wantMovies[wantMovies.length-1] ||
@@ -120,23 +119,26 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
 
   let deleteButton;
   if (userMovie) {
-    deleteButton = <button className='deleteButton' onClick={onDeleteButtonClick}>Remove Movie</button>;
+    deleteButton = <button className='deleteButton button-stretch' onClick={onDeleteButtonClick}>Remove Movie</button>;
   }
 
   let buttonPad;
-  if (page !== 'other') {
+  if (page === 'other') {
+    buttonPad = <Link to={`/movies/${movie.id}`}><button className='showButton button-stretch'>Show Movie</button></Link>;
+  } else {
     buttonPad = (
       <div>
-        <button className='wantButton' onClick={onWantButtonClick} value='want'>
+        <Link to={`/movies/${movie.id}`}><button className='showButton button-stretch'>Show Movie</button></Link>
+        <button className='wantButton button-quarter-stretch' onClick={onWantButtonClick} value='want'>
           <i className="fa fa-heart" aria-hidden="true" value='add'></i>
         </button>
-      <button className='addButton' onClick={onAddButtonClick} value='add'>
+        <button className='addButton button-quarter-stretch' onClick={onAddButtonClick} value='add'>
           <i className="fa fa-plus" aria-hidden="true" value='add'></i>
         </button>
-        <button className='likeButton' onClick={onLikeButtonClick} value='like'>
+        <button className='likeButton button-quarter-stretch' onClick={onLikeButtonClick} value='like'>
           <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
         </button>
-        <button onClick={onDislikeButtonClick} value='dislike'>
+        <button className="button-quarter-stretch" onClick={onDislikeButtonClick} value='dislike'>
           <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
         </button><br></br>
         {deleteButton}
@@ -149,11 +151,10 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
       <div className={`inner-movie-box ${innerClassName}`}>
         {boxHeader}
         <h4>{movie.title}</h4>
-        <Link to={`/movies/${movie.id}`}><button className='showButton'>Show Movie</button></Link>
-        {buttonPad}
         <div className='index-image'>
           <img src={image_url} />
         </div>
+        {buttonPad}
       </div>
     </div>
   );

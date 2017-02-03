@@ -39,5 +39,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const IndexMovieBoxContainer = connect(mapStateToProps, mapDispatchToProps)(IndexMovieBox);
 
-
 export default IndexMovieBoxContainer;

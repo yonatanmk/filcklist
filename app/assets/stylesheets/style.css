@@ -42,288 +42,40 @@ body {
   display: inline-block;
 }
 
-/* Nav Bar */
-.top-bar-spacer {
-  height: 76px;
-}
-
-@media (max-width: 949px) {
-  .top-bar-spacer {
-    height: 145px;
-  }
-}
-@media (max-width: 640px) {
-  .top-bar-spacer {
-    height: 110px;
-  }
-}
-
-.top-bar {
-  padding: 0px 8px 0px 8px;
-  font-family: 'Movie Times';
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: fixed;
-  z-index: 1000;
-  background: #CEA33B; /* For browsers that do not support gradients */
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
-  /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
-  /* For Fx 3.6 to 15 */
-  background: -moz-linear-gradient(left,#E6CB74,#6E4517, #5E1B6B,#996F27,#CBA13D,#C29635,#5E1B6B,#936517);
-  /* Standard syntax */
-  background: linear-gradient(to right, #E6CB74,#6E4517, #5E1B6B, #996F27,#CBA13D,#C29635,#5E1B6B,#936517);
-}
-
-.menu-text {
-  padding: 0px 16px 0px 0px;
-}
-
-.menu-text a {
-  font-family: 'Movie Times';
-  color: black;
-  background-color: #F8F3F7;
-  padding: 10px 10px 0px 10px;
-  border-radius: 10px;
-  border-style: double;
-  border-color: black;
-}
-
-.menu-text a:hover {
-  background-color: #E2DDE1;
-}
-
-.menu-text h1 {
-  margin-top: 7px;
-}
-
-.top-bar a {
-  margin-top: 10px;
-  color: black;
-  /*background-color: #F8F3F7;*/
-  border-radius: 10px;
-  border-style: double;
-  border-color: black;
-  margin-right: 20px;
-  background: #E0E0E0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
-}
-
-.top-bar {
-  font-size: 30px;
-}
-
-.top-bar a:hover, .showButton {
-  background: #868686; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
-}
-
-.top-bar ul {
-  background-color: transparent;
-}
-
-.account-menu-button {
-  padding-left: 30px !important;
-  padding-right: 30px !important;
-}
-
 /*Index page*/
 
 .search-form {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   margin-top: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
 }
 
 .index-search-bar {
   font-family: 'Movie Times';
-  background-color: rgba(0, 0, 0, 0.2) !important;
-  color: black;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: white;
   margin-top: 20px;
 }
 
-.index-search-bar::-webkit-input-placeholder {
-   color: #5E1B6B;
+.search-button {
+  margin-top: 20px;
+  background-color: #262626;
+  border-color: #CACACA;
+  border-style: solid;
+  border-width: 1px;
 }
 
-.index-search-bar:-moz-placeholder { /* Firefox 18- */
-   color: #5E1B6B;
-}
-
-.index-search-bar::-moz-placeholder {  /* Firefox 19+ */
-   color: #5E1B6B;
-}
-
-.index-search-bar:-ms-input-placeholder {
-   color: #5E1B6B;
+.search-button:hover {
+  background-color: #C8C8C8;
+  border: 1px solid grey;
+  color: black;
 }
 
 .index-list {
   padding: 20px;
-}
-
-.index-box {
-  height: 445px;
-  /*border-style: solid;
-  border-width: 3px;
-  border-color: black;*/
-  /*overflow: hidden;*/
-}
-
-.inner-movie-box {
-  margin-top: 10px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 10px;
-  height: 430px;
-  overflow: hidden;
-  padding: 10px;
-}
-
-.inner-movie-box * {
-  font-family: 'Raleway', sans-serif;
-}
-
-img {
-  height: 260px
-}
-
-ul {
-  list-style: none;
-}
-
-.index-image {
-  height: 195px;
-  overflow: hidden;
-}
-
-.movie-box-header {
-  font-family: 'Raleway', sans-serif;
-  /*font-weight: bold;*/
-  font-size: 26px;
-  text-align: center;
-  border-style: solid;
-  border-width: 3px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-
-.gray, .red, .blue, .green {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
-
-.white {
-  font-weight: bold;
-  text-align: center;
-}
-
-/*.gray button {
-  border-color: black;
-  border-style: double;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.red button {
-  border-color: black;
-  border-style: double;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.blue button {
-  border-color: black;
-  border-style: double;
-  border-width: 3px;
-  border-radius: 5px;
-}
-.green button {
-  border-color: black;
-  border-style: double;
-  border-width: 3px;
-  border-radius: 5px;
-}*/
-
-.inner-movie-box button {
-  color: black;
-  padding: 10px;
-  /*background-color: #F8F3F7;*/
-  background: #E0E0E0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
-  border-color: black;
-  border-style: double;
-  border-width: 3px;
-  border-radius: 5px;
-}
-
-.inner-movie-box button:hover, .showButton {
-  background: #868686; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
-}
-
-
-.movie-box-header * {
-  margin: 0px;
-}
-
-.seen-header {
-  border-color: #5A5B5B;
-  color: #5A5B5B;
-}
-
-.want-header {
-  border-color: #2E6E99;
-  color: #2E6E99;
-}
-
-.like-header {
-  border-color: #489E66;
-  color: #489E66;
-}
-
-.dislike-header {
-  border-color: #A34545;
-  color: #A34545;
-}
-
-.gray {
-  /*background-color: #8D8E8E;*/
-  background-color: rgba(39,39,39, 0.9);
-}
-
-.blue {
-  /*background-color: #48ACF0;*/
-  background-color: rgba(20,47,66, 0.9);
-}
-
-.green {
-  /*background-color: #71F79F;*/
-  background-color: rgba(31,68,44, 0.9);
-}
-
-.red {
-  /*background-color: #FF6B6B;*/
-  background-color: rgba(70,30,30, 0.9);
-}
-
-.white {
-  /*background-color: white;*/
-  background-color: rgba(255, 255, 255, 0.9);
+  /*background-color: black;*/
 }
 
 .user-search-bar {

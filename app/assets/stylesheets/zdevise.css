@@ -42,6 +42,7 @@
 
 .devise-box a:hover {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .title {

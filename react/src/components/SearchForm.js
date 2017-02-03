@@ -4,14 +4,20 @@ const SearchForm = ({handleSearchFormSubmit}) => {
   let input;
   return (
     <div className='small-6 small-centered columns'>
-      <div className='search-form inline'>
-        <input className= 'index-search-bar inline' type='text' ref={node => {input = node;}} placeholder='Please Enter A Movie'/>
-        <button className='button inline' onClick={() => {
-          handleSearchFormSubmit(input.value);
-          input.value = '';
-        }}>
-          Find Movie
-        </button>
+      <div className='search-form'>
+        <div className='row'>
+          <div className='small-9 columns'>
+            <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder='Please Enter a Movie'/>
+          </div>
+          <div className='small-3 columns'>
+            <button className='button search-button' onClick={() => {
+              handleSearchFormSubmit(input.value);
+              input.value = '';
+            }}>
+              Find Movie
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

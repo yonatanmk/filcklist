@@ -55,7 +55,7 @@ class App extends Component {
           </div>
           <div className="top-bar-right">
             <ul className="dropdown menu" data-dropdown-menu>
-              <li><a data-open="exampleModal1" onClick={this.handleSearchButtonClick}>Users</a></li>
+              <li><a data-open="user-search" onClick={this.handleSearchButtonClick}>Users</a></li>
               <li>
                 <a href="#" className='account-menu-button'>Account</a>
                 <ul className="menu vertical account-dropdown">
@@ -67,8 +67,8 @@ class App extends Component {
             </ul>
           </div>
         </div>
-        <div className="reveal" id="exampleModal1" data-reveal>
-          <button className="close-button" data-close="exampleModal1">
+        <div className="reveal" id="user-search" data-reveal>
+          <button className="close-button" data-close="user-search">
             <span aria-hidden="true">&times;</span>
           </button>
           <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>

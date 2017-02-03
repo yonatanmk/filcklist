@@ -20,8 +20,10 @@ const MovieList = ({movies, firstSearch, handleMovieClick, handleAddUserMovieCli
       );
     });
     return (
-      <div className='index-list'>
-        {movies}
+      <div>
+        <div className='index-list'>
+          {movies}
+        </div>
       </div>
     );
   }
