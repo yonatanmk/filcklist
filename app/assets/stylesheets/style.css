@@ -17,7 +17,6 @@ h1, p {
 }
 
 body {
-  /*height: 100vh;*/
   overflow: hidden;
   background-image: url(/assets/film-large.jpeg);
   background-size: cover;
