@@ -116,7 +116,6 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     handleDeleteButtonClick(user, movie);
   };
 
-
   let deleteButton;
   if (userMovie) {
     deleteButton = <button className='deleteButton button-stretch' onClick={onDeleteButtonClick}>Remove Movie</button>;
@@ -138,7 +137,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
         <button className='likeButton button-quarter-stretch' onClick={onLikeButtonClick} value='like'>
           <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
         </button>
-        <button className="button-quarter-stretch" onClick={onDislikeButtonClick} value='dislike'>
+        <button className="dislikeButton button-quarter-stretch" onClick={onDislikeButtonClick} value='dislike'>
           <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
         </button><br></br>
         {deleteButton}

@@ -14,6 +14,7 @@
   border-radius: 10px;
   overflow: hidden;
   padding: 10px;
+  height: 460px;
 }
 
 .inner-movie-box * {
@@ -80,12 +81,48 @@
   border-radius: 5px;
 }
 
-.inner-movie-box button:hover, .showButton {
+.showButton:hover, .deleteButton:hover {
   background: #868686; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
+}
+
+.wantButton:hover {
+  color: white;
+  background: #2E6E99; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #2E6E99, #142F42); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #2E6E99, #142F42); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #2E6E99, #142F42); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #2E6E99, #142F42); /* Standard syntax */
+}
+
+.addButton:hover {
+  color: white;
+  background: #5A5B5B; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #5A5B5B, #272727); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #5A5B5B, #272727); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #5A5B5B, #272727); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #5A5B5B, #272727); /* Standard syntax */
+}
+
+.likeButton:hover {
+  color: white;
+  background: #489E66; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #489E66, #1F442C); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #489E66, #1F442C); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #489E66, #1F442C); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #489E66, #1F442C); /* Standard syntax */
+}
+
+.dislikeButton:hover {
+  color: white;
+  background: #A34545; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #A34545, #461E1E); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #A34545, #461E1E); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #A34545, #461E1E); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #A34545, #461E1E); /* Standard syntax */
 }
 
 
