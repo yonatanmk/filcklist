@@ -43,7 +43,7 @@ body {
 
 /*Index page*/
 
-.search-form {
+.content-box {
   background-color: rgba(0, 0, 0, 0.5);
   margin-top: 20px;
   border-radius: 10px;
@@ -54,11 +54,16 @@ body {
 .index-search-bar {
   font-family: 'Movie Times';
   font-size: 30px;
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-color: rgba(0, 0, 0, 0.7);
   color: #DCD0D2;
   margin-top: 20px;
   border-radius: 10px;
   padding-top: 13px;
+}
+
+.index-search-bar:focus{
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 .search-button {
