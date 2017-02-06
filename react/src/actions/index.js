@@ -1,5 +1,6 @@
 export {default as setMovieData} from './setMovieData';
 export {default as setSelectedMovie} from './setSelectedMovie';
+export {default as showMovie} from './showMovie';
 export {default as setUser} from './setUser';
 export {default as setUsers} from './setUsers';
 export {default as setSelectedUser} from './setSelectedUser';

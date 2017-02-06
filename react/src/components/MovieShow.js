@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-import { addMovie, setSelectedMovie, setSelectedMovieAction } from '../actions';
+import { setSelectedMovie } from '../actions';
 import * as api from '../api';
 
 class MovieShow extends Component {
@@ -10,17 +10,7 @@ class MovieShow extends Component {
   }
 
   componentDidMount() {
-    if (this.props.movies.length > 0) {
-      let movie = this.props.movies.find((movie)=>{return movie.id == this.props.params.id;});
-      this.props.dispatch(setSelectedMovieAction(movie));
-      api.addMovie(movie)
-      .catch(error => {
-        console.error(`Error in fetch: ${error.message}`);
-      });
-    }
-    else {
-      this.props.dispatch(setSelectedMovie(this.props.params.id));
-    }
+    this.props.dispatch(setSelectedMovie(this.props.params.id));
   }
 
   render() {
