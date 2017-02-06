@@ -81,7 +81,7 @@ class MovieShow extends Component {
 
     if (this.props.selectedMovie){
       let movie = this.props.selectedMovie;
-      let image, cast, directors;
+      let image, cast, directors, castBox, directorBox;
       if (movie.poster_path) {
         image = <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
       }
@@ -125,6 +125,22 @@ class MovieShow extends Component {
           </div>
         );
       }, this);
+      if (cast.length > 0) {
+        castBox = (
+          <div className='staff-box'>
+            <h4 className='show-label'>Cast</h4>
+            {cast}
+          </div>
+        );
+      }
+      if (directors.length > 0) {
+        directorBox = (
+          <div className='staff-box'>
+            <h4 className='show-label'>Director{directors.length > 1 ? 's' : ''}</h4>
+            {directors}
+          </div>
+        );
+      }
       return(
         <div className={className}>
           {boxHeader}
@@ -133,10 +149,8 @@ class MovieShow extends Component {
             <div className='small-6 columns movie-show-text'>
               <h4>Release Date: {movie.release_date}</h4>
               <p className='overview'>{movie.overview}</p>
-              <h4 className='show-label'>Director{directors.length > 1 ? 's' : ''}</h4>
-              {directors}
-              <h4 className='show-label'>Cast</h4>
-              {cast}
+              {directorBox}
+              {castBox}
             </div>
             <div className='small-6 columns'>
               {image}
