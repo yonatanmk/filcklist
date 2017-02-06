@@ -22,7 +22,6 @@ class Api::V1::MoviesController < ApplicationController
           if Actor.where("id = #{@actor.id}").length == 0
             @actor.save
           end
-          MovieActor.create()
           MovieActor.create(actor: @actor, movie: @movie, character: actor['character'])
         end
       end

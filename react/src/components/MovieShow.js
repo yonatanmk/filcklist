@@ -14,10 +14,17 @@ class MovieShow extends Component {
   }
 
   render() {
-    let userMovie;
+    let userMovie, cast;
     let backId = "white-back";
     if (this.props.selectedMovie) {
       userMovie = this.props.userMovies.find((userMovie)=>{return userMovie.id == this.props.selectedMovie.id;});
+      cast = this.props.selectedMovie.actors.map((actor)=>{
+        return (
+          <div key={actor.id}>
+            <p>{actor.name}</p>
+          </div>
+        );
+      });
     }
     if (userMovie && this.props.selectedMovie) {
       this.props.selectedMovie.status = userMovie.status;
@@ -77,6 +84,8 @@ class MovieShow extends Component {
       backId = "black-back";
     }
 
+
+
     if (this.props.selectedMovie){
       let movie = this.props.selectedMovie;
       return(
@@ -87,6 +96,7 @@ class MovieShow extends Component {
             <div className='small-6 columns movie-show-text'>
               <h5>Release Date: {movie.release_date}</h5>
               <p className='overview'>{movie.overview}</p>
+              {cast}
             </div>
             <div className='small-6 columns'>
               <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
