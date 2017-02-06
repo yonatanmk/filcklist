@@ -1,23 +1,24 @@
-class Api::V1::MoviesController < ApplicationController
+class Api::V1::ActorsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @data = get_movie_db_info(params[:query])
-    render json: @data
+    # @data = get_movie_db_info(params[:query])
+    # render json: @data
   end
 
   def show
-    @movie = Movie.find(params[:id])
-    render json: @movie
+    # @movie = Movie.find(params[:id])
+    # render json: @movie
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
-    if Movie.where("id = #{@movie.id}").length == 0
-      @movie.save
-    end
-    render json: {}
+    binding.pry
+    # @movie = Movie.new(movie_params)
+    # @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
+    # if Movie.where("id = #{@movie.id}").length == 0
+    #   @movie.save
+    # end
+    # render json: {}
   end
 
   def destroy
@@ -28,7 +29,7 @@ class Api::V1::MoviesController < ApplicationController
 
   private
 
-  def movie_params
+  def actor_params
     params.require(:movie).permit(:id, :title, :poster_path, :release_date, :overview, :adult)
   end
 

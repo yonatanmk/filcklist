@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20170206161329) do
 
   create_table "movie_actors", force: :cascade do |t|
     t.integer "movie_id",  null: false
-    t.integer "actors_id", null: false
+    t.integer "actor_id",  null: false
     t.string  "character", null: false
-    t.index ["actors_id"], name: "index_movie_actors_on_actors_id", using: :btree
+    t.index ["actor_id"], name: "index_movie_actors_on_actor_id", using: :btree
     t.index ["movie_id"], name: "index_movie_actors_on_movie_id", using: :btree
   end
 
