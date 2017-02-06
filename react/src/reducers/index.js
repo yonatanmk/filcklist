@@ -63,6 +63,15 @@ let firstSearch = (state = true, action ) => {
   }
 };
 
-const appReducer = combineReducers({user, users, userQuery, selectedUser, movies, selectedMovie, firstSearch});
+let profileStatus = (state = 'want', action ) => {
+  switch (action.type) {
+    case 'SET PROFILE STATUS':
+      return action.status;
+    default:
+      return state;
+  }
+};
+
+const appReducer = combineReducers({user, users, userQuery, selectedUser, movies, selectedMovie, profileStatus, firstSearch});
 
 export default appReducer;

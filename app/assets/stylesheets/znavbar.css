@@ -22,7 +22,7 @@
   background-attachment: fixed;
   position: fixed;
   z-index: 1000;
-  background: -webkit-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
+  background: rgba(0,0,0, 0.5), rgba(0,0,0, 0.5), rgba(0,0,0, 0.5), url(/assets/film-large.jpeg);
   /* For Opera 11.1 to 12.0 */
   background: -o-linear-gradient(left,rgba(0,0,0, 0.5), rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(/assets/film-large.jpeg);
   /* For Fx 3.6 to 15 */
@@ -35,9 +35,8 @@
 .top-bar-right a {
   margin-top: 10px;
   color: black;
-  /*background-color: #F8F3F7;*/
   border-radius: 10px;
-  border-style: groove;
+  border-style: solid;
   border-color: black;
   margin-right: 20px;
   background: #E0E0E0; /* For browsers that do not support gradients */

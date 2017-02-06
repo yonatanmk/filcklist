@@ -1,0 +1,48 @@
+.user-header{
+  padding: 15px;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.user-header *{
+  font-family: 'Raleway', sans-serif;
+}
+
+.user-header h1 {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  margin-bottom: 5px;
+}
+
+.user-button {
+  font-size: 24px;
+  margin-top: 10px;
+  color: black;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  margin-right: 20px;
+  background: #E0E0E0; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
+  padding: 10px;
+}
+
+.user-button:hover {
+  background: #868686; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
+}
+
+.user-button * {
+  margin: 0px;
+}

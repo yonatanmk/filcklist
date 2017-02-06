@@ -53,3 +53,10 @@ export const setSelectedUserAction = (user) => {
     user
   };
 };
+
+export const setProfileStatusAction = (status) => {
+  return {
+    type: 'SET PROFILE STATUS',
+    status
+  };
+};

@@ -4,7 +4,7 @@ const SearchForm = ({handleSearchFormSubmit}) => {
   let input;
   return (
     <div className='small-6 small-centered columns'>
-      <div className='search-form'>
+      <div className='content-box'>
         <div className='row'>
           <div className='small-9 columns'>
             <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder='Search Movies'/>

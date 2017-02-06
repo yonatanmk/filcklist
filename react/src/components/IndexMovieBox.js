@@ -4,30 +4,31 @@ import * as api from '../api';
 import { addUserMovie } from '../actions';
 
 const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick, handleDeleteButtonClick}) => {
-  let className, innerClassName;
+  let className = "small-12 medium-6 large-3 columns index-box"; 
+  let innerClassName;
   let wantMovies = [];
   let notWantMovies = [];
-  if (page === "index") {
-    className = "small-12 medium-6 large-3 columns index-box";
-  }
-  else if (page === "user" || page === "other") {
-    className = "small-12 medium-12 large-6 columns index-box";
-  }
-  if (page == 'user') {
-    wantMovies = userMovies.filter((movie)=>{return movie.status === 'want';});
-    notWantMovies = userMovies.filter((movie)=>{return movie.status !== 'want';});
-  }
-  else if (page == 'other') {
-    wantMovies = movies.filter((movie)=>{return movie.status === 'want';});
-    notWantMovies = movies.filter((movie)=>{return movie.status !== 'want';});
-  }
-  if (
-    movie == movies[movies.length-1] ||
-    movie == wantMovies[wantMovies.length-1] ||
-    movie == notWantMovies[notWantMovies.length-1]
-  ) {
+
+  // if (page == 'user') {
+  //   wantMovies = userMovies.filter((movie)=>{return movie.status === 'want';});
+  //   notWantMovies = userMovies.filter((movie)=>{return movie.status !== 'want';});
+  // }
+  // else if (page == 'other') {
+  //   wantMovies = movies.filter((movie)=>{return movie.status === 'want';});
+  //   notWantMovies = movies.filter((movie)=>{return movie.status !== 'want';});
+  // }
+  // if (
+  //   movie == movies[movies.length-1] ||
+  //   movie == wantMovies[wantMovies.length-1] ||
+  //   movie == notWantMovies[notWantMovies.length-1]
+  // ) {
+  //   className += " end";
+  // }
+
+  if (movie == movies[movies.length-1]) {
     className += " end";
   }
+
   let userMovie = userMovies.find((userMovie)=>{return userMovie.id == movie.id;});
   if (userMovie && (page === 'user' || page == 'index')) {
     movie.status = userMovie.status;
@@ -101,7 +102,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
   };
 
   let onAddButtonClick = (event) => {
-    handleButtonClick(user, movie, 'add');
+    handleButtonClick(user, movie, 'seen');
   };
 
   let onLikeButtonClick = (event) => {
