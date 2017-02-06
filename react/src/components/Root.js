@@ -7,6 +7,7 @@ import UserPageContainer from '../containers/UserPageContainer';
 import MovieIndex from './MovieIndex';
 import MovieShowContainer from '../containers/MovieShowContainer';
 import OtherUserPageContainer from '../containers/OtherUserPageContainer';
+import NotFound from './NotFound';
 
 
 const Root = ({ store }) => (
@@ -22,6 +23,8 @@ const Root = ({ store }) => (
           <Route path="/users/:id" component={OtherUserPageContainer} />
           <Route path="/movies" component={MovieIndex} />
           <Route path="/movies/:id" component={MovieShowContainer} />
+          <Route path='/404' component={NotFound} />
+          <Redirect from='*' to='/404' />
         </Route>
       </Router>
     </Provider>
