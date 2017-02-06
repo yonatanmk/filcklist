@@ -146,6 +146,13 @@ body {
   text-decoration: underline;
 }
 
+.show-page img {
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+}
+
 #white-back {
   color: white;
 }
