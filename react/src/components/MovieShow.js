@@ -14,17 +14,10 @@ class MovieShow extends Component {
   }
 
   render() {
-    let userMovie, cast;
+    let userMovie;
     let backId = "white-back";
     if (this.props.selectedMovie) {
       userMovie = this.props.userMovies.find((userMovie)=>{return userMovie.id == this.props.selectedMovie.id;});
-      cast = this.props.selectedMovie.actors.map((actor)=>{
-        return (
-          <div key={actor.id}>
-            <p>{actor.name}</p>
-          </div>
-        );
-      });
     }
     if (userMovie && this.props.selectedMovie) {
       this.props.selectedMovie.status = userMovie.status;
@@ -88,18 +81,65 @@ class MovieShow extends Component {
 
     if (this.props.selectedMovie){
       let movie = this.props.selectedMovie;
+      let image, cast, directors;
+      if (movie.poster_path) {
+        image = <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
+      }
+      cast = this.props.selectedMovie.actors.map((actor)=>{
+        let character = this.props.selectedMovie.movie_actors.find((movieActor)=>{return movieActor.actor_id === actor.id;}).character;
+        let profileUrl;
+        if (actor.profile_path) {
+          profileUrl = `http://image.tmdb.org/t/p/w45/${actor.profile_path}`;
+        } else {
+          profileUrl = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
+        }
+
+        return (
+          <div key={actor.id} className='row cast-list-item'>
+            <div className='small-2 columns'>
+              <img className='actor-profile' src={profileUrl} />
+            </div>
+            <div className='small-10 columns'>
+              <p><b>{actor.name}</b></p>
+              <p>as {character}</p>
+            </div>
+          </div>
+        );
+      }, this);
+      directors = this.props.selectedMovie.directors.map((director)=>{
+        let profileUrl;
+        if (director.profile_path) {
+          profileUrl = `http://image.tmdb.org/t/p/w45/${director.profile_path}`;
+        } else {
+          profileUrl = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
+        }
+
+        return (
+          <div key={director.id} className='row cast-list-item'>
+            <div className='small-2 columns'>
+              <img className='actor-profile' src={profileUrl} />
+            </div>
+            <div className='small-10 columns'>
+              <p><b>{director.name}</b></p>
+            </div>
+          </div>
+        );
+      }, this);
       return(
         <div className={className}>
           {boxHeader}
           <h1>{movie.title}</h1>
           <div className='row show-content'>
             <div className='small-6 columns movie-show-text'>
-              <h5>Release Date: {movie.release_date}</h5>
+              <h4>Release Date: {movie.release_date}</h4>
               <p className='overview'>{movie.overview}</p>
+              <h4 className='show-label'>Director{directors.length > 1 ? 's' : ''}</h4>
+              {directors}
+              <h4 className='show-label'>Cast</h4>
               {cast}
             </div>
             <div className='small-6 columns'>
-              <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+              {image}
             </div>
           </div>
           <div className='back-button-box white-text'>

@@ -16,13 +16,21 @@ class Api::V1::MoviesController < ApplicationController
     @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
     if Movie.where("id = #{@movie.id}").length == 0
       if @movie.save
-        @cast = get_movie_db_cast_info(@movie.id)
+        @cast = get_movie_db_cast_info(@movie.id)['cast']
         @cast[0..5].each do |actor|
           @actor = Actor.new(id: actor['id'], name: actor['name'], profile_path: actor['profile_path'])
           if Actor.where("id = #{@actor.id}").length == 0
             @actor.save
           end
           MovieActor.create(actor: @actor, movie: @movie, character: actor['character'])
+        end
+        directors = get_movie_db_cast_info(@movie.id)['crew'].select{|employee| employee['job'] == 'Director'}
+        directors.each do |director|
+          @director = Director.new(id: director['id'], name: director['name'], profile_path: director['profile_path'])
+          if Director.where("id = #{@director.id}").length == 0
+            @director.save
+          end
+          MovieDirector.create(director: @director, movie: @movie)
         end
       end
     end
@@ -57,6 +65,6 @@ class Api::V1::MoviesController < ApplicationController
 
   def get_movie_db_cast_info(id)
     response = Net::HTTP.get_response(movie_db_cast_uri(id))
-    return JSON.parse(response.body)['cast']
+    return JSON.parse(response.body)
   end
 end
