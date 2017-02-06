@@ -126,6 +126,10 @@ body {
   float: right;
 }
 
+.show-content {
+  margin-top: 20px;
+}
+
 .movie-show-text {
   text-align: left;
   font-family: 'Raleway', sans-serif;

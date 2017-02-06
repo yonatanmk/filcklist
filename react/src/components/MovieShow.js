@@ -83,13 +83,13 @@ class MovieShow extends Component {
         <div className={className}>
           {boxHeader}
           <h1>{movie.title}</h1>
-          <div className='row'>
+          <div className='row show-content'>
             <div className='small-6 columns movie-show-text'>
               <h5>Release Date: {movie.release_date}</h5>
               <p className='overview'>{movie.overview}</p>
             </div>
             <div className='small-6 columns'>
-              <img src={`http://image.tmdb.org/t/p/w300/${movie.poster_path}`} />
+              <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
             </div>
           </div>
           <div className='back-button-box white-text'>
