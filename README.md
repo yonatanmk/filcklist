@@ -14,5 +14,6 @@
 * remove unnecessary FactoryGirl and test 
 * fix phone view
 * refactor movieboxes to use different containers, relocate logic to containers
+* react-notify-toast when navigating to page without persisted user or movie
 
 # ADD NAVBAR TO EDIT ACCOUNT PAGE 
