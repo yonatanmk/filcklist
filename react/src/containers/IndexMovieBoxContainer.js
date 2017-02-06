@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import IndexMovieBox from '../components/IndexMovieBox';
-import { setUserMovie, deleteUserMovie } from '../actions';
+import { setUserMovie, deleteUserMovie, showMovie } from '../actions';
 import * as api from '../api';
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,6 +28,16 @@ const mapDispatchToProps = (dispatch) => {
       .then(() => {
         dispatch(setUserMovie(user, movie, status));
       })
+      .catch(error => {
+        console.error(`Error in fetch: ${error.message}`);
+      });
+    },
+    handleShowButtonClick: (movie) => {
+      api.addMovie(movie)
+      .then(() => {
+        dispatch(showMovie(movie.id));
+      })
+      .then(()=>{browserHistory.push(`/movies/${movie.id}`);})
       .catch(error => {
         console.error(`Error in fetch: ${error.message}`);
       });

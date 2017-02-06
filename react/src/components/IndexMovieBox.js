@@ -1,29 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
 import * as api from '../api';
 import { addUserMovie } from '../actions';
 
-const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick, handleDeleteButtonClick}) => {
-  let className = "small-12 medium-6 large-3 columns index-box"; 
+const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
+  let className = "small-12 medium-6 large-3 columns index-box";
   let innerClassName;
-  let wantMovies = [];
-  let notWantMovies = [];
-
-  // if (page == 'user') {
-  //   wantMovies = userMovies.filter((movie)=>{return movie.status === 'want';});
-  //   notWantMovies = userMovies.filter((movie)=>{return movie.status !== 'want';});
-  // }
-  // else if (page == 'other') {
-  //   wantMovies = movies.filter((movie)=>{return movie.status === 'want';});
-  //   notWantMovies = movies.filter((movie)=>{return movie.status !== 'want';});
-  // }
-  // if (
-  //   movie == movies[movies.length-1] ||
-  //   movie == wantMovies[wantMovies.length-1] ||
-  //   movie == notWantMovies[notWantMovies.length-1]
-  // ) {
-  //   className += " end";
-  // }
 
   if (movie == movies[movies.length-1]) {
     className += " end";
@@ -97,6 +78,10 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
     image_url = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
   }
 
+  let onShowButtonClick = (event) => {
+    handleShowButtonClick(movie);
+  };
+
   let onWantButtonClick = (event) => {
     handleButtonClick(user, movie, 'want');
   };
@@ -124,11 +109,13 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick
 
   let buttonPad;
   if (page === 'other') {
-    buttonPad = <Link to={`/movies/${movie.id}`}><button className='showButton button-stretch'>Show Movie</button></Link>;
+    buttonPad = <button className='showButton button-stretch' onClick={onShowButtonClick}>Show Movie</button>;
   } else {
     buttonPad = (
       <div>
-        <Link to={`/movies/${movie.id}`}><button className='showButton button-stretch'>Show Movie</button></Link>
+        <button className='showButton button-stretch' onClick={onShowButtonClick}>
+          Show Movie
+        </button>
         <button className='wantButton button-quarter-stretch' onClick={onWantButtonClick} value='want'>
           <i className="fa fa-heart" aria-hidden="true" value='add'></i>
         </button>
