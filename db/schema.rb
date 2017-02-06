@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127203534) do
+ActiveRecord::Schema.define(version: 20170206194320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actors", force: :cascade do |t|
+    t.string "name",         null: false
+    t.string "profile_path"
+  end
+
+  create_table "directors", force: :cascade do |t|
+    t.string "name",         null: false
+    t.string "profile_path"
+  end
+
+  create_table "movie_actors", force: :cascade do |t|
+    t.integer "movie_id",  null: false
+    t.integer "actor_id",  null: false
+    t.string  "character", null: false
+    t.index ["actor_id"], name: "index_movie_actors_on_actor_id", using: :btree
+    t.index ["movie_id"], name: "index_movie_actors_on_movie_id", using: :btree
+  end
+
+  create_table "movie_directors", force: :cascade do |t|
+    t.integer "movie_id",    null: false
+    t.integer "director_id", null: false
+    t.index ["director_id"], name: "index_movie_directors_on_director_id", using: :btree
+    t.index ["movie_id"], name: "index_movie_directors_on_movie_id", using: :btree
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",                        null: false

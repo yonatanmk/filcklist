@@ -126,6 +126,10 @@ body {
   float: right;
 }
 
+.show-content {
+  margin-top: 20px;
+}
+
 .movie-show-text {
   text-align: left;
   font-family: 'Raleway', sans-serif;
@@ -137,6 +141,7 @@ body {
 }
 
 .back-button-box {
+  margin-top: 20px;
   text-align: left;
   font-family: 'Raleway', sans-serif;
 }
@@ -151,6 +156,14 @@ body {
   border-width: 3px;
   border-color: black;
   border-radius: 5px;
+}
+
+.cast-list-item {
+  margin-top: 20px;
+}
+
+.show-label {
+  text-align: center;
 }
 
 #white-back {
