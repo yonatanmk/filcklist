@@ -33,7 +33,7 @@ class App extends Component {
       }, this);
       userList = userList.map((user)=>{
         let otherProfileURL;
-        let className = 'small-4 columns user-box';
+        let className = 'small-3 columns user-box';
         if (user == userList[userList.length-1]) {
           className += ' end';
         }
@@ -44,7 +44,7 @@ class App extends Component {
         }
         return (
           <div key={user.id} className={className}>
-            <div className='center'>
+            <div>
               <Link to={`/users/${user.id}`} data-close="user-search">
                 <div>
                   <img className='profile-photo center' src={otherProfileURL} />
@@ -68,7 +68,7 @@ class App extends Component {
         <div className="top-bar small-12 columns">
           <div className="top-bar-left">
             <ul className="menu" >
-              <li className="menu-text"><h1><a href="/">fLICKlIST</a></h1></li>
+              <li className="menu-text"><h1><a href="/" data-close="user-search">fLICKlIST</a></h1></li>
             </ul>
           </div>
           <div className="top-bar-right">
@@ -77,19 +77,20 @@ class App extends Component {
               <li>
                 <a href="#" className='account-menu-button'>Account</a>
                 <ul className="menu vertical account-dropdown">
-                  <li><Link to={`/user`}>Your Movies</Link ></li>
-                  <li><a href="/users/edit">Settings</a></li>
-                  <li><a href="/users/sign_out" data-method="delete" >Sign Out</a></li>
+                  <li><Link to={`/user`} data-close="user-search">Your Movies</Link ></li>
+                  <li><a href="/users/edit" data-close="user-search">Settings</a></li>
+                  <li><a href="/users/sign_out" data-method="delete" data-close="user-search" >Sign Out</a></li>
                 </ul>
               </li>
               <li><img className='profile-photo' src={profileURL} /></li>
             </ul>
           </div>
         </div>
-        <div className="reveal" id="user-search" data-reveal>
+        <div className="reveal user-search-box" id="user-search" data-reveal>
           <button className="close-button" data-close="user-search">
             <span aria-hidden="true">&times;</span>
           </button>
+          <h2>Search Users</h2>
           <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
           <div className='user-list'>
             {userList}
