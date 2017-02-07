@@ -107,13 +107,13 @@ class MovieShow extends Component {
       let movie = this.props.selectedMovie;
       let image, cast, directors, castBox, directorBox;
       if (movie.poster_path) {
-        image = <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
+        image = <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
       }
       cast = this.props.selectedMovie.actors.map((actor)=>{
         let character = this.props.selectedMovie.movie_actors.find((movieActor)=>{return movieActor.actor_id === actor.id;}).character;
         let profileUrl;
         if (actor.profile_path) {
-          profileUrl = `http://image.tmdb.org/t/p/w45/${actor.profile_path}`;
+          profileUrl = `https://image.tmdb.org/t/p/w45/${actor.profile_path}`;
         } else {
           profileUrl = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
         }
@@ -133,7 +133,7 @@ class MovieShow extends Component {
       directors = this.props.selectedMovie.directors.map((director)=>{
         let profileUrl;
         if (director.profile_path) {
-          profileUrl = `http://image.tmdb.org/t/p/w45/${director.profile_path}`;
+          profileUrl = `https://image.tmdb.org/t/p/w45/${director.profile_path}`;
         } else {
           profileUrl = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
         }

@@ -9,6 +9,7 @@ const OtherUserPage = ({dispatch, handleProfileButtonClick, params, selectedUser
   };
 
   let username, movies, profileURL;
+  debugger;
   if (selectedUser === null || parseInt(params.id) !== selectedUser.info.id) {
     dispatch(setSelectedUser(params.id));
   }
@@ -36,7 +37,7 @@ const OtherUserPage = ({dispatch, handleProfileButtonClick, params, selectedUser
     });
   }
 
-  if (user && selectedUser.info.profile_photo.profile.url) {
+  if (selectedUser && selectedUser.info.profile_photo.profile.url) {
     profileURL = selectedUser.info.profile_photo.profile.url;
   } else {
     profileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
