@@ -9,13 +9,28 @@
   font-family: 'Raleway', sans-serif;
 }
 
-.user-header h1 {
+.user-header-label{
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   border-style: solid;
   border-color: black;
   border-width: 3px;
   margin-bottom: 5px;
+}
+
+.user-header-label h1{
+  margin: 20px 0px 20px 0px;
+}
+
+.profile-page-image {
+  margin: 5px;
+  float: left;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
 }
 
 .user-button {
