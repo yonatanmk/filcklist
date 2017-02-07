@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all.map do |user|
-      {id: user.id, username: user.username}
+      {id: user.id, username: user.username, profile_photo: user.profile_photo}
     end
     render json: @users
   end

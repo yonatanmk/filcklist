@@ -97,3 +97,19 @@
   border-color: black;
   border-width: 3px;
 }
+
+.center {
+  display: block;
+  margin: 15px auto;
+  margin-bottom: 0px;
+}
+
+.user-box {
+  text-align: center;
+}
+
+/*7A7779*/
+
+.reveal-overlay {
+  background-color: rgba(255, 255, 255, 0.45)
+}

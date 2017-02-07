@@ -30,11 +30,28 @@ class App extends Component {
     if (this.props.userQuery) {
       userList = this.props.users.filter((otherUser)=>{
         return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
-      }, this)
-      .map((user)=>{
+      }, this);
+      userList = userList.map((user)=>{
+        let otherProfileURL;
+        let className = 'small-4 columns user-box';
+        if (user == userList[userList.length-1]) {
+          className += ' end';
+        }
+        if (user.profile_photo.url) {
+          otherProfileURL = user.profile_photo.thumb.url;
+        } else {
+          otherProfileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
+        }
         return (
-          <div key={user.id}>
-            <Link to={`/users/${user.id}`} data-close="exampleModal1"><p>{user.username}</p></Link >
+          <div key={user.id} className={className}>
+            <div className='center'>
+              <Link to={`/users/${user.id}`} data-close="user-search">
+                <div>
+                  <img className='profile-photo center' src={otherProfileURL} />
+                  <p>{user.username}</p>
+                </div>
+              </Link >
+            </div>
           </div>
         );
       });
@@ -74,7 +91,9 @@ class App extends Component {
             <span aria-hidden="true">&times;</span>
           </button>
           <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
-          {userList}
+          <div className='user-list'>
+            {userList}
+          </div>
         </div>
         <div className='top-bar-spacer'></div>
         <div className='content'>
