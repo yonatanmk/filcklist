@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { setUser, setUsers, setUserQueryAction } from '../actions';
 import {notify} from 'react-notify-toast';
 
@@ -23,6 +23,10 @@ class App extends Component {
     let body = event.target.value;
     if (body === "") {body = null;}
     this.props.dispatch(setUserQueryAction(body));
+  }
+
+  handleProfileClick () {
+    browserHistory.push(`/user`);
   }
 
   render() {
@@ -82,7 +86,7 @@ class App extends Component {
                   <li><a href="/users/sign_out" data-method="delete" data-close="user-search" >Sign Out</a></li>
                 </ul>
               </li>
-              <li><img className='profile-photo' src={profileURL} /></li>
+              <li><img className='profile-photo hover-hand' onClick={this.handleProfileClick} src={profileURL} /></li>
             </ul>
           </div>
         </div>
