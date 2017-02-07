@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import RecommendationPage from '../components/RecommendationPage';
 
 const mapStateToProps = (state) => {
+  let userMovies;
+  if (state.user) {
+    userMovies = state.user.movies;
+  }
   return {
-    userMovies: state.user.movies
+    userMovies
   };
 };
 
