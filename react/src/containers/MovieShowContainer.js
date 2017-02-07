@@ -32,5 +32,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const MovieShowContainer = connect(mapStateToProps, mapDispatchToProps)(MovieShow);
 
-
 export default MovieShowContainer;

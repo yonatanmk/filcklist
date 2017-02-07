@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { setUser, setUsers, setUserQueryAction } from '../actions';
 import {notify} from 'react-notify-toast';
 
@@ -11,7 +11,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // notify.show('You have signed in', 'success', 2000);
     if (!this.props.user) {
       this.props.dispatch(setUser());
     }
@@ -26,23 +25,46 @@ class App extends Component {
     this.props.dispatch(setUserQueryAction(body));
   }
 
-  handleSearchButtonClick () {
-    // notify.show('You have signed in', 'success', 20000);
+  handleProfileClick () {
+    browserHistory.push(`/user`);
   }
 
   render() {
-    let userList;
+    let userList, profileURL;
     if (this.props.userQuery) {
       userList = this.props.users.filter((otherUser)=>{
         return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
-      }, this)
-      .map((user)=>{
+      }, this);
+      userList = userList.map((user)=>{
+        let otherProfileURL;
+        let className = 'small-3 columns user-box';
+        if (user == userList[userList.length-1]) {
+          className += ' end';
+        }
+        if (user.profile_photo.url) {
+          otherProfileURL = user.profile_photo.thumb.url;
+        } else {
+          otherProfileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
+        }
         return (
-          <div key={user.id}>
-            <Link to={`/users/${user.id}`} data-close="exampleModal1"><p>{user.username}</p></Link >
+          <div key={user.id} className={className}>
+            <div>
+              <Link to={`/users/${user.id}`} data-close="user-search">
+                <div>
+                  <img className='profile-photo center' src={otherProfileURL} />
+                  <p>{user.username}</p>
+                </div>
+              </Link >
+            </div>
           </div>
         );
       });
+    }
+
+    if (this.props.user && this.props.user.info.profile_photo.url) {
+      profileURL = this.props.user.info.profile_photo.thumb.url;
+    } else {
+      profileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
     }
 
     return (
@@ -50,7 +72,7 @@ class App extends Component {
         <div className="top-bar small-12 columns">
           <div className="top-bar-left">
             <ul className="menu" >
-              <li className="menu-text"><h1><a href="/">fLICKlIST</a></h1></li>
+              <li className="menu-text"><h1><a href="/" data-close="user-search">fLICKlIST</a></h1></li>
             </ul>
           </div>
           <div className="top-bar-right">
@@ -59,20 +81,24 @@ class App extends Component {
               <li>
                 <a href="#" className='account-menu-button'>Account</a>
                 <ul className="menu vertical account-dropdown">
-                  <li><Link to={`/user`}>Your Movies</Link ></li>
-                  <li><a href="/users/edit">Settings</a></li>
-                  <li><a href="/users/sign_out" data-method="delete" >Sign Out</a></li>
+                  <li><Link to={`/user`} data-close="user-search">Your Movies</Link ></li>
+                  <li><a href="/users/edit" data-close="user-search">Settings</a></li>
+                  <li><a href="/users/sign_out" data-method="delete" data-close="user-search" >Sign Out</a></li>
                 </ul>
               </li>
+              <li><img className='profile-photo hover-hand' onClick={this.handleProfileClick} src={profileURL} /></li>
             </ul>
           </div>
         </div>
-        <div className="reveal" id="user-search" data-reveal>
+        <div className="reveal user-search-box" id="user-search" data-reveal>
           <button className="close-button" data-close="user-search">
             <span aria-hidden="true">&times;</span>
           </button>
+          <h2>Search Users</h2>
           <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
-          {userList}
+          <div className='user-list'>
+            {userList}
+          </div>
         </div>
         <div className='top-bar-spacer'></div>
         <div className='content'>

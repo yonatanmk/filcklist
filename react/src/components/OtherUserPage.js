@@ -8,7 +8,8 @@ const OtherUserPage = ({dispatch, handleProfileButtonClick, params, selectedUser
     handleProfileButtonClick(event.target.value);
   };
 
-  let username, movies;
+  let username, movies, profileURL;
+  debugger;
   if (selectedUser === null || parseInt(params.id) !== selectedUser.info.id) {
     dispatch(setSelectedUser(params.id));
   }
@@ -36,10 +37,19 @@ const OtherUserPage = ({dispatch, handleProfileButtonClick, params, selectedUser
     });
   }
 
+  if (selectedUser && selectedUser.info.profile_photo.profile.url) {
+    profileURL = selectedUser.info.profile_photo.profile.url;
+  } else {
+    profileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
+  }
+
   return (
     <div>
       <div className='content-box user-header'>
-        <h1>{username}{"\'"}s Movies</h1>
+        <div className='user-header-label'>
+          <img className='profile-page-image inline' src={profileURL} />
+          <h1 className='inline'>{username}{"\'"}s Movies</h1>
+        </div>
         <button className='user-button' onClick={handleClick} value='want'>
           Plan to Watch
         </button>

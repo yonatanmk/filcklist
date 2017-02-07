@@ -13,6 +13,9 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'active_model_serializers', '~> 0.10.0'
+gem "carrierwave"
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'fog'
 
 group :development do
   gem 'listen', '~> 3.0.5'

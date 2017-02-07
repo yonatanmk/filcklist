@@ -73,7 +73,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonC
 
   let image_url;
   if (movie.poster_path) {
-    image_url = `http://image.tmdb.org/t/p/w185/${movie.poster_path}`;
+    image_url = `https://image.tmdb.org/t/p/w185/${movie.poster_path}`;
   } else {
     image_url = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
   }
