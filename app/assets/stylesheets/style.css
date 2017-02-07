@@ -170,6 +170,27 @@ body {
   margin-top: 10px;
 }
 
+.button-pad button {
+  color: black;
+  padding: 10px;
+  /*background-color: #F8F3F7;*/
+  background: #E0E0E0; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+}
+
+.button-pad {
+  width: 500px;
+  margin-top: 20px;
+  float: right;
+}
+
 #white-back {
   color: white;
 }

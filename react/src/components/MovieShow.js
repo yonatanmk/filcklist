@@ -7,10 +7,35 @@ import * as api from '../api';
 class MovieShow extends Component {
   constructor(props) {
     super(props);
+
+    this.onWantButtonClick = this.onWantButtonClick.bind(this);
+    this.onAddButtonClick = this.onAddButtonClick.bind(this);
+    this.onLikeButtonClick = this.onLikeButtonClick.bind(this);
+    this.onDislikeButtonClick = this.onDislikeButtonClick.bind(this);
   }
 
   componentDidMount() {
     this.props.dispatch(setSelectedMovie(this.props.params.id));
+  }
+
+  onWantButtonClick (event) {
+    this.props.handleButtonClick(this.props.user, this.props.selectedMovie, 'want');
+  }
+
+  onAddButtonClick (event) {
+    this.props.handleButtonClick(this.props.user, this.props.selectedMovie, 'seen');
+  }
+
+  onLikeButtonClick (event) {
+    this.props.handleButtonClick(this.props.user, this.props.selectedMovie, 'like');
+  }
+
+  onDislikeButtonClick (event) {
+    this.props.handleButtonClick(this.props.user, this.props.selectedMovie, 'dislike');
+  }
+
+  onDeleteButtonClick () {
+    this.props.handleDeleteButtonClick(this.props.user, this.props.selectedMovie);
   }
 
   render() {
@@ -77,8 +102,6 @@ class MovieShow extends Component {
       backId = "black-back";
     }
 
-
-
     if (this.props.selectedMovie){
       let movie = this.props.selectedMovie;
       let image, cast, directors, castBox, directorBox;
@@ -113,7 +136,6 @@ class MovieShow extends Component {
         } else {
           profileUrl = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
         }
-
         return (
           <div key={director.id} className='row cast-list-item'>
             <div className='small-2 columns'>
@@ -125,6 +147,7 @@ class MovieShow extends Component {
           </div>
         );
       }, this);
+
       if (cast.length > 0) {
         castBox = (
           <div className='staff-box'>
@@ -141,6 +164,30 @@ class MovieShow extends Component {
           </div>
         );
       }
+
+      let deleteButton;
+      if (userMovie) {
+        deleteButton = <button className='deleteButton button-stretch' onClick={this.onDeleteButtonClick}>Remove Movie</button>;
+      }
+
+      let buttonPad = (
+        <div className='button-pad' >
+          <button className='wantButton button-quarter-stretch' onClick={this.onWantButtonClick} value='want'>
+            <i className="fa fa-heart" aria-hidden="true" value='add'></i>
+          </button>
+          <button className='addButton button-quarter-stretch' onClick={this.onAddButtonClick} value='add'>
+            <i className="fa fa-plus" aria-hidden="true" value='add'></i>
+          </button>
+          <button className='likeButton button-quarter-stretch' onClick={this.onLikeButtonClick} value='like'>
+            <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </button>
+          <button className="dislikeButton button-quarter-stretch" onClick={this.onDislikeButtonClick} value='dislike'>
+            <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
+          </button><br></br>
+          {deleteButton}
+        </div>
+      );
+
       return(
         <div className={className}>
           {boxHeader}
@@ -154,6 +201,7 @@ class MovieShow extends Component {
             </div>
             <div className='small-6 columns'>
               {image}
+              {buttonPad}
             </div>
           </div>
           <div className='back-button-box white-text'>

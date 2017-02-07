@@ -7,6 +7,7 @@ export const addUserMovie = (user_id, movie_id, status) => {
     }
   };
   let body = JSON.stringify(data);
+  debugger;
   return fetch(`/api/v1/user_movies`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },

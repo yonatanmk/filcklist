@@ -2,7 +2,11 @@ import * as api from '../api';
 import setUser from './setUser';
 
 let setUserMovie = (user, movie, status) => (dispatch) => {
-  api.addUserMovie(user.id, movie.id, status)
+  let userId = user.id;
+  if (!userId) {
+    userId = user.info.id;
+  }
+  api.addUserMovie(userId, movie.id, status)
   .then(body => {
     dispatch(setUser());
   })
