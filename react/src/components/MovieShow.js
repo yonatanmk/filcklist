@@ -12,6 +12,7 @@ class MovieShow extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onLikeButtonClick = this.onLikeButtonClick.bind(this);
     this.onDislikeButtonClick = this.onDislikeButtonClick.bind(this);
+    this.onDeleteButtonClick = this.onDeleteButtonClick.bind(this);
   }
 
   componentDidMount() {

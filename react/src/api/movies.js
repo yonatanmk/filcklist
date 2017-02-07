@@ -50,7 +50,6 @@ export const addMovie = (movie) => {
         return response;
       }
       else {
-        debugger;
         let errorMessage = `${response.status} (${response.statusText})`,
             error = new Error(errorMessage);
         throw(error);
