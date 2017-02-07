@@ -87,3 +87,13 @@
   padding-left: 30px !important;
   padding-right: 30px !important;
 }
+
+.profile-photo {
+  margin-top: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+}

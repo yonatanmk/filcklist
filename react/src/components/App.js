@@ -11,7 +11,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // notify.show('You have signed in', 'success', 2000);
     if (!this.props.user) {
       this.props.dispatch(setUser());
     }
@@ -26,12 +25,8 @@ class App extends Component {
     this.props.dispatch(setUserQueryAction(body));
   }
 
-  handleSearchButtonClick () {
-    // notify.show('You have signed in', 'success', 20000);
-  }
-
   render() {
-    let userList;
+    let userList, profileURL;
     if (this.props.userQuery) {
       userList = this.props.users.filter((otherUser)=>{
         return otherUser.username.toLowerCase().search(this.props.userQuery.toLowerCase()) > -1 && otherUser.id !== this.props.user.info.id;
@@ -43,6 +38,12 @@ class App extends Component {
           </div>
         );
       });
+    }
+
+    if (this.props.user && this.props.user.info.profile_photo.url) {
+      profileURL = this.props.user.info.profile_photo.thumb.url;
+    } else {
+      profileURL = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;
     }
 
     return (
@@ -64,6 +65,7 @@ class App extends Component {
                   <li><a href="/users/sign_out" data-method="delete" >Sign Out</a></li>
                 </ul>
               </li>
+              <li><img className='profile-photo' src={profileURL} /></li>
             </ul>
           </div>
         </div>
