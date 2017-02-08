@@ -48,25 +48,26 @@ class Api::V1::MoviesController < ApplicationController
       movie
     end
     @movies = @movies.select{|movie| movie.status == 'like'}
-    until @rec
-      recs = []
-      until recs.length > 0 do
-        until recs.length > 0 do
-          if @movies.length > 0
-            @movie = @movies.sample
-            recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results']
-            @movies.delete_if { |movie| movie.id == @movie.id }
-          end
+    recs = []
+    until recs.length > 0 || @movies.length == 0 do
+      until recs.length > 0 || @movies.length == 0 do
+        if @movies.length > 0
+          @movie = @movies.sample
+          recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results'] if @movie.title
+          @movies.delete_if { |movie| movie.id == @movie.id }
         end
-        recs.map!{|rec| rec['Name']}
-        recs.reject!{|movie| current_user.movies.pluck(:title).include?(movie)}
       end
-      rec_title = recs.sample
-      @rec = Movie.where(title: rec_title)[0]
-      if !@rec
-        @data = get_movie_db_movie_info(rec_title)
-        @rec = @data.find{|movie| movie['title'] == rec_title}
-      end
+      recs.map!{|rec| rec['Name']}
+      recs.reject!{|movie| current_user.movies.pluck(:title).include?(movie)}
+    end
+    rec_title = recs.sample
+    @rec = Movie.where(title: rec_title)[0]
+    if !@rec && rec_title
+      @data = get_movie_db_movie_info(rec_title)
+      @rec = @data.find{|movie| movie['title'] == rec_title}
+    end
+    unless @rec
+      @rec = 'not found'
     end
     render json: {rec: @rec}
   end

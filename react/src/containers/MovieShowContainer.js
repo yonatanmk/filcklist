@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
   } else {
     selectedMovie = state.selectedMovie;
   }
-  debugger;
   return {
     user: state.user,
     movies: state.movies,

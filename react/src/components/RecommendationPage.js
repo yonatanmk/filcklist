@@ -20,20 +20,34 @@ const RecommendationPage = ({userMovies, rec, handleButtonClick}) => {
   // }
   let show;
   if (rec) {
-    show = <IndexMovieBoxContainer
-      movie={rec}
-      movies={[rec]}
-      page='rec'
-    />;
+    if (rec == 'not found') {
+      show = (
+        <div className='user-header-label rec-error raleway'>
+          <h3 className='raleway'>We're Sorry. We Could Not Find A Movie At This Time</h3>
+        </div>);
+    } else {
+      show = <IndexMovieBoxContainer
+        movie={rec}
+        movies={[rec]}
+        page='rec'
+      />;
+    }
   }
 
   return (
     <div>
-      <div className='content-box'>
-        <button onClick={handleButtonClick}>GET RECOMMENDATION</button>
+      <div className='content-box raleway'>
+        <div className='user-header-label rec-label raleway'>
+          <h1 className='raleway'>Get Movie Recommendation</h1>
+        </div>
+        <div className='small-3 small-centered columns'>
+          <button className='raleway rec-button' onClick={handleButtonClick}>GET RECOMMENDATION</button>
+        </div>
       </div>
-      <div>
-        {show}
+      <div className='row'>
+        <div className='small-12 medium-12 large-6 small-centered medium-centered large-centered columns'>
+          {show}
+        </div>
       </div>
     </div>
   );
