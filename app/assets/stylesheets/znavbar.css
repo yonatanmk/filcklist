@@ -153,3 +153,7 @@
 .hover-hand {
   cursor: pointer;
 }
+
+.hover-hand:hover {
+  border-width: 1px;
+}

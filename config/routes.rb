@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :movies, only: :index
   namespace :api do
     namespace :v1 do
-      resources :movies, only: [:index, :show, :create]
+      resources :movies, only: [:index, :show, :create] do
+        collection do
+          get :rec
+        end
+      end
       resources :users, only: [:index, :show] do
         collection do
           get :current

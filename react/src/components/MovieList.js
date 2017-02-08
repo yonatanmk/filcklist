@@ -15,6 +15,7 @@ const MovieList = ({movies, firstSearch, handleMovieClick, handleAddUserMovieCli
         <IndexMovieBoxContainer
           key={movie.id}
           movie={movie}
+          movies={movies}
           page="index"
         />
       );

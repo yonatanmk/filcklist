@@ -3,7 +3,11 @@ import * as api from '../api';
 import { addUserMovie } from '../actions';
 
 const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
+
   let className = "small-12 medium-6 large-3 columns index-box";
+  if (page === 'rec') {
+    className = "index-box";
+  }
   let innerClassName;
 
   if (movie == movies[movies.length-1]) {
@@ -11,7 +15,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonC
   }
 
   let userMovie = userMovies.find((userMovie)=>{return userMovie.id == movie.id;});
-  if (userMovie && (page === 'user' || page == 'index')) {
+  if (userMovie && (page === 'user' || page == 'index' || page == 'rec')) {
     movie.status = userMovie.status;
   }
   else if (page !== 'other') {

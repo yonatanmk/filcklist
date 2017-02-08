@@ -4,15 +4,21 @@ import { browserHistory } from 'react-router';
 import MovieShow from '../components/MovieShow';
 import { setUserMovie, deleteUserMovie } from '../actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let selectedMovie;
   let userMovies = [];
   if (state.user) {
     userMovies = state.user.movies;
   }
+  if (ownProps.rec) {
+    selectedMovie = ownProps.rec;
+  } else {
+    selectedMovie = state.selectedMovie;
+  }
   return {
     user: state.user,
     movies: state.movies,
-    selectedMovie: state.selectedMovie,
+    selectedMovie,
     userMovies: userMovies
   };
 };
