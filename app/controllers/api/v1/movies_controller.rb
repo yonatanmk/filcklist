@@ -14,43 +14,62 @@ class Api::V1::MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
-    # binding.pry
     if Movie.where("id = #{@movie.id}").length == 0
       if @movie.save
-        # binding.pry
         @cast = get_movie_db_cast_info(@movie.id)['cast']
         @cast[0..5].each do |actor|
           @actor = Actor.new(id: actor['id'], name: actor['name'], profile_path: actor['profile_path'])
-          # binding.pry
           if Actor.where("id = #{@actor.id}").length == 0
-            # binding.pry
             @actor.save
-            # binding.pry
           end
-          # binding.pry
           MovieActor.create(actor_id: actor['id'], movie_id: @movie.id, character: actor['character'])
-          # binding.pry
         end
         directors = get_movie_db_cast_info(@movie.id)['crew'].select{|employee| employee['job'] == 'Director'}
         directors.each do |director|
           @director = Director.new(id: director['id'], name: director['name'], profile_path: director['profile_path'])
-          # binding.pry
           if Director.where("id = #{@director.id}").length == 0
             @director.save
-            # binding.pry
           end
           MovieDirector.create(director_id: director['id'], movie_id: @movie.id)
-          # binding.pry
         end
       end
     end
     render json: {}
   end
 
-  def destroy
-  end
-
-  def update
+  def rec
+    @user_movies = current_user.user_movies
+    @movies = current_user.movies.map do |movie|
+      @user_movies.each do |user_movie|
+        if movie.id == user_movie.movie_id
+          movie.status = user_movie.status
+        end
+      end
+      movie
+    end
+    @movies = @movies.select{|movie| movie.status == 'like'}
+    recs = []
+    until recs.length > 0 do
+      until recs.length > 0 do
+        @movie = @movies.sample
+        recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results']
+        @movies.delete_if { |movie| movie.id == @movie.id }
+      end
+      recs.map!{|rec| rec['Name']}
+      recs.reject!{|movie| current_user.movies.pluck(:title).include?(movie)}
+    end
+    rec_title = recs.sample
+    @rec = Movie.where(title: rec_title)[0]
+    if @rec
+      binding.pry
+      render json: {rec: @rec}
+    else
+      binding.pry
+      @data = get_movie_db_movie_info(rec_title)
+      binding.pry
+      render json: {}
+    end
+    # ["Casino Royale", "Watchmen", "The Bourne Trilogy", "Man Of Steel", "Skyfall", "X-Men", "X-Men: First Class", "Spider-Man"]
   end
 
   private
@@ -75,6 +94,17 @@ class Api::V1::MoviesController < ApplicationController
 
   def get_movie_db_cast_info(id)
     response = Net::HTTP.get_response(movie_db_cast_uri(id))
+    return JSON.parse(response.body)
+  end
+
+  def tastekid_uri(query)
+    # URI("https://api.themoviedb.org/3/movie/#{id}/casts?api_key=#{ENV["MOVIE_DB_API_KEY"]}")
+    query = query.split(' ').join('+')
+    URI("https://www.tastekid.com/api/similar?q=movie:#{query}&type=movie&k=#{ENV["TASTEKID_API_KEY"]}")
+  end
+
+  def get_tastekid_info(query)
+    response = Net::HTTP.get_response(tastekid_uri(query))
     return JSON.parse(response.body)
   end
 end

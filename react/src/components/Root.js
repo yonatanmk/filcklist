@@ -34,6 +34,3 @@ const Root = ({ store }) => (
 );
 
 export default Root;
-
-// <Route path="/user" component={RecommendationPageContainer} />
-// <Route path="/usersearch/:query" component={UserSearchPageContainer} />

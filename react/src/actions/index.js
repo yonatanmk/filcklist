@@ -6,6 +6,7 @@ export {default as setUsers} from './setUsers';
 export {default as setSelectedUser} from './setSelectedUser';
 export {default as setUserMovie} from './setUserMovie';
 export {default as deleteUserMovie} from './deleteUserMovie';
+export {default as fetchRec} from './fetchRec';
 
 export const setMoviesAction = (movies) => {
   return {
@@ -59,5 +60,12 @@ export const setProfileStatusAction = (status) => {
   return {
     type: 'SET PROFILE STATUS',
     status
+  };
+};
+
+export const setRecAction = (movie) => {
+  return {
+    type: 'SET REC',
+    movie
   };
 };
