@@ -1,10 +1,12 @@
 import React from 'react';
+import MovieShowContainer from '../containers/MovieShowContainer';
+import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
 
-const RecommendationPage = ({userMovies, handleButtonClick}) => {
+const RecommendationPage = ({userMovies, rec, handleButtonClick}) => {
   if (!userMovies) {
     return <div></div>;
   }
-  // 
+  //
   // userMovies = userMovies.filter((movie)=>{
   //   return movie.status == 'like';
   // });
@@ -16,9 +18,23 @@ const RecommendationPage = ({userMovies, handleButtonClick}) => {
   //     </div>
   //   );
   // }
+  let show;
+  if (rec) {
+    show = <IndexMovieBoxContainer
+      movie={rec}
+      movies={[rec]}
+      page='rec'
+    />;
+  }
+
   return (
-    <div className='content-box'>
-      <button onClick={handleButtonClick}>GET RECOMMENDATION</button>
+    <div>
+      <div className='content-box'>
+        <button onClick={handleButtonClick}>GET RECOMMENDATION</button>
+      </div>
+      <div>
+        {show}
+      </div>
     </div>
   );
 };

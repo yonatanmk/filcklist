@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
     userMovies = state.user.movies;
   }
   return {
-    userMovies
+    userMovies,
+    rec: state.rec
   };
 };
 
