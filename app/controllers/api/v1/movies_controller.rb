@@ -48,23 +48,27 @@ class Api::V1::MoviesController < ApplicationController
       movie
     end
     @movies = @movies.select{|movie| movie.status == 'like'}
-    recs = []
-    until recs.length > 0 || @movies.length == 0 do
+    counter = 0
+    until @rec || counter > 10
+      recs = []
       until recs.length > 0 || @movies.length == 0 do
-        if @movies.length > 0
-          @movie = @movies.sample
-          recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results'] if @movie.title
-          @movies.delete_if { |movie| movie.id == @movie.id }
+        until recs.length > 0 || @movies.length == 0 do
+          if @movies.length > 0
+            @movie = @movies.sample
+            recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results'] if @movie.title
+            @movies.delete_if { |movie| movie.id == @movie.id }
+          end
         end
+        recs.map!{|rec| rec['Name']}
+        recs.reject!{|movie| current_user.movies.pluck(:title).include?(movie)}
       end
-      recs.map!{|rec| rec['Name']}
-      recs.reject!{|movie| current_user.movies.pluck(:title).include?(movie)}
-    end
-    rec_title = recs.sample
-    @rec = Movie.where(title: rec_title)[0]
-    if !@rec && rec_title
-      @data = get_movie_db_movie_info(rec_title)
-      @rec = @data.find{|movie| movie['title'] == rec_title}
+      rec_title = recs.sample
+      @rec = Movie.where(title: rec_title)[0]
+      if !@rec && rec_title
+        @data = get_movie_db_movie_info(rec_title)
+        @rec = @data.find{|movie| movie['title'] == rec_title}
+      end
+      counter += 1
     end
     unless @rec
       @rec = 'not found'
@@ -98,7 +102,6 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def tastekid_uri(query)
-    # URI("https://api.themoviedb.org/3/movie/#{id}/casts?api_key=#{ENV["MOVIE_DB_API_KEY"]}")
     query = query.split(' ').join('+')
     URI("https://www.tastekid.com/api/similar?q=movie:#{query}&type=movie&k=#{ENV["TASTEKID_API_KEY"]}")
   end
