@@ -82,6 +82,7 @@ class App extends Component {
                 <a href="#" className='account-menu-button'>Account</a>
                 <ul className="menu vertical account-dropdown">
                   <li><Link to={`/user`} data-close="user-search">Your Movies</Link ></li>
+                  <li><Link to={`/recommendation`} data-close="user-search">You May Like</Link ></li>
                   <li><a href="/users/edit" data-close="user-search">Settings</a></li>
                   <li><a href="/users/sign_out" data-method="delete" data-close="user-search" >Sign Out</a></li>
                 </ul>
