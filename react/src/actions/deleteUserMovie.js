@@ -10,7 +10,7 @@ let deleteUserMovie = (user, movie) => (dispatch) => {
   api.deleteUserMovie(userId, movie.id)
   .then(body => {
     dispatch(setUser());
-    notify.show("The Movie Has Been Removed.", 'success', 2000);
+    notify.show(`${movie.title} Has Been Removed.`, 'success', 3000);
   })
   .catch(error => {
     console.error(`Error in fetch: ${error.message}`);

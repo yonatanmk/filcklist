@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import MovieShow from '../components/MovieShow';
-import { setUserMovie, deleteUserMovie } from '../actions';
+import { setUserMovie, deleteUserMovie, showMovie } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
   let selectedMovie;
@@ -31,7 +30,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleDeleteButtonClick: (user, movie) => {
       dispatch(deleteUserMovie(user, movie));
-      // browserHistory.push(`/movies`);
     }
   };
 };
