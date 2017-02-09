@@ -48,13 +48,15 @@ class MovieShow extends Component {
     if (userMovie && this.props.selectedMovie) {
       this.props.selectedMovie.status = userMovie.status;
     }
+    else if (this.props.selectedMovie) {
+      this.props.selectedMovie.status = null;
+    }
     let className = 'show-page';
     let boxHeader = (
       <div className='not-seen-header movie-box-header'>
         <p>Not Seen</p>
       </div>
     );
-
     if (this.props.selectedMovie && this.props.selectedMovie.status) {
       switch (this.props.selectedMovie.status) {
         case 'seen':
@@ -90,7 +92,7 @@ class MovieShow extends Component {
           );
           break;
         default:
-          className += " gray";
+          className += " white";
           boxHeader = (
             <div className='seen-header movie-box-header'>
               <p>Seen</p>
