@@ -9,7 +9,6 @@ const OtherUserPage = ({dispatch, handleProfileButtonClick, params, selectedUser
   };
 
   let username, movies, profileURL;
-  debugger;
   if (selectedUser === null || parseInt(params.id) !== selectedUser.info.id) {
     dispatch(setSelectedUser(params.id));
   }

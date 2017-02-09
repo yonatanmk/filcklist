@@ -11,7 +11,6 @@ let fetchRec = () => (dispatch) => {
       api.addMovie(rec.rec)
       .then(() => {
         dispatch(setRecAction(rec.rec));
-        // dispatch(setSelectedMovie(rec.rec.id));
       })
       .catch(error => {
         console.error(`Error in fetch: ${error.message}`);
