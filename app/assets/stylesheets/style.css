@@ -10,6 +10,7 @@ html {
 
 .reveal-overlay {
   overflow-y: hidden;
+  background-color: rgba(255, 255, 255, 0.75)
 }
 
 h1, p {
@@ -265,4 +266,8 @@ body {
 
 .center-div {
   margin: auto;
+}
+
+.form-actions {
+  margin-top: 10px;
 }
