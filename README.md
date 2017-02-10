@@ -20,7 +20,9 @@
 
 * Movies can be marked as "Plan to See", "Already Seen", "Liked", or "Disliked"
 
-* Navigatinv to user profile page will display movie lists organized by how the users has labeled their movies
+* Interactive show page for movies that display movie cast, director, poster image, and release date
+
+* Navigating to user profile page will display movie lists organized by how the users has labeled their movies
 
 * Responsive user search modal that will display links to user profiles
 
@@ -28,6 +30,9 @@
 
 * Movie suggestion feature using tastekid API to recommend movies to user based on the movies they've "liked"
 
+![MarkdownExplorer](index.png)
+
+![MarkdownExplorer](profile.png)
 
 ##Core Technologies
 
