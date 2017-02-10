@@ -12,15 +12,22 @@
 
 ##Features
 
-* This is a site based on user-generated content. All content is publicly available; visitors can see all content, but not submit items, reviews, or vote on reviews. Once a visitor has created an account, they are free to perform these actions.
+* User authentication pages built using devise
 
-* The index page automatically updates to show newly posted content in real time.
+* Google reCAPTCHA verification 
 
-* Voting on reviews updates the reviews' score in real time, and reviews are reordered based on their score.
+* Movie search page queries THe Movie Database API to display a list of movies based on user search
 
-* Admins can delete unwanted content as well as delete toxic user accounts.
+* Movies can be marked as "Plan to See", "Already Seen", "Liked", or "Disliked"
 
-* Users are notified via email when their items have received a new review.
+* Navigatinv to user profile page will display movie lists organized by how the users has labeled their movies
+
+* Responsive user search modal that will display links to user profiles
+
+* Users can view the profiles of other users and the movie lists they've created
+
+* Movie suggestion feature using tastekid API to recommend movies to user based on the movies they've "liked"
+
 
 ##Core Technologies
 
