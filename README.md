@@ -32,7 +32,7 @@
 * React.js/Redux
 * Foundation
 
-###Test
+###Testing
 
 * RSpec
 * Capybara
