@@ -1,0 +1,4 @@
+### Features to be added
+* Forgotten Password email feature, find in project "Forgot Your Password?"
+* fix phone view
+* refactor movieboxes to use different containers, relocate logic to containers
