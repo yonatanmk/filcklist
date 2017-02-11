@@ -14,7 +14,7 @@
 
 * User authentication pages built using devise
 
-* Google reCAPTCHA verification 
+* Google reCAPTCHA user verification 
 
 * Movie search page queries THe Movie Database API to display a list of movies based on user search
 
