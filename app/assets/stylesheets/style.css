@@ -223,49 +223,8 @@ body {
   display: inline-block;
 }
 
-.rec-label {
-  text-align: center;
-  color: white;
-  margin: 20px;
-}
-
-.rec-error {
-  text-align: center;
-  color: white;
-  margin: 20px;
-  padding: 10px;
-}
-
 .raleway{
   font-family: 'Raleway', sans-serif;
-}
-
-.rec-button {
-  margin-bottom: 10px;
-  padding: 10px;
-  color: black;
-  border-width: 3px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: black;
-  margin-right: 20px;
-  background: #E0E0E0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #868686, #E0E0E0); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #868686, #E0E0E0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #868686, #E0E0E0); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #868686, #E0E0E0); /* Standard syntax */
-}
-
-.rec-button:hover {
-  background: #868686; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #E0E0E0, #868686); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #E0E0E0, #868686); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #E0E0E0, #868686); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #E0E0E0, #868686); /* Standard syntax */
-}
-
-.center-div {
-  margin: auto;
 }
 
 .form-actions {
