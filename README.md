@@ -2,11 +2,11 @@
 [![Code Climate](https://codeclimate.com/github/yonatanmk/flicklist/badges/gpa.svg)](https://codeclimate.com/github/yonatanmk/flicklist)
 [![Coverage Status](https://coveralls.io/repos/github/yonatanmk/flicklist/badge.svg?branch=master)](https://coveralls.io/github/yonatanmk/flicklist?branch=master)
 
-# SchwamIt
+# FlickList
 
 ## Overview
 
-[FlickList](https://flicklist.herokuapp.com) is a web app for organizing movies into those you plan to see and those you have already seen. On the site, users can query The Movie Database API for movies and then add them to movie lists on their profile. Movie list options include "Plan to See", "Already Seen", "Liked", and "Disliked". The site also gives you the ability to view movie lists of other users, and has a recommendation feature that will suggest movies based on the movies you've liked.
+[FlickList](https://flicklist.herokuapp.com) is a web app made over the course of 2 weeks for organizing movies into those you plan to see and those you have already seen. On the site, users can query The Movie Database API for movies and then add them to movie lists on their profile. Movie list options include "Plan to See", "Already Seen", "Liked", and "Disliked". The site also gives you the ability to view movie lists of other users, and has a recommendation feature that will suggest movies based on the movies you've liked.
 
 ###Author: [Yonatan Meschede-Krasa](https://github.com/yonatanmk)
 
