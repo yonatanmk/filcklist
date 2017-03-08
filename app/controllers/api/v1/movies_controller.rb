@@ -73,7 +73,6 @@ class Api::V1::MoviesController < ApplicationController
     unless @rec
       @rec = 'not found'
     end
-    binding.pry
     render json: {rec: @rec}
   end
 
