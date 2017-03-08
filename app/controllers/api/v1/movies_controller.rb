@@ -55,7 +55,7 @@ class Api::V1::MoviesController < ApplicationController
         until recs.length > 0 || @movies.length == 0 do
           if @movies.length > 0
             @movie = @movies.sample
-            recs = get_tastekid_info(@movie.title.downcase)['Similar']['Results'] if @movie.title
+            recs = @movie.recs
             @movies.delete_if { |movie| movie.id == @movie.id }
           end
         end
@@ -73,6 +73,7 @@ class Api::V1::MoviesController < ApplicationController
     unless @rec
       @rec = 'not found'
     end
+    binding.pry
     render json: {rec: @rec}
   end
 
@@ -101,13 +102,4 @@ class Api::V1::MoviesController < ApplicationController
     return JSON.parse(response.body)
   end
 
-  def tastekid_uri(query)
-    query = query.split(' ').join('+')
-    URI("https://www.tastekid.com/api/similar?q=movie:#{query}&type=movie&k=#{ENV["TASTEKID_API_KEY"]}")
-  end
-
-  def get_tastekid_info(query)
-    response = Net::HTTP.get_response(tastekid_uri(query))
-    return JSON.parse(response.body)
-  end
 end

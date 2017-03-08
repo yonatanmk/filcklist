@@ -1,5 +1,5 @@
 class MovieSerializer < ActiveModel::Serializer
-  attributes :id, :title, :poster_path, :release_date, :overview, :adult, :status
+  attributes :id, :title, :poster_path, :release_date, :overview, :adult, :status, :recs
 
   has_many :actors
   has_many :movie_actors

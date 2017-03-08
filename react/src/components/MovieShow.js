@@ -191,6 +191,10 @@ class MovieShow extends Component {
         </div>
       );
 
+      if (movie) {
+        debugger;
+      }
+
       return(
         <div className={className}>
           {boxHeader}
