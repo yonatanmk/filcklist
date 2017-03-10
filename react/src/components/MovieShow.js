@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router';
 import { setSelectedMovie } from '../actions';
 import * as api from '../api';
 
+import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
+
 class MovieShow extends Component {
   constructor(props) {
     super(props);
@@ -191,8 +193,16 @@ class MovieShow extends Component {
         </div>
       );
 
+      let recs;
       if (movie) {
         debugger;
+        recs = movie.recs.map((rec) => {
+          return (
+            <div>
+              {rec.Name}
+            </div>
+          );
+        });
       }
 
       return(
@@ -209,6 +219,11 @@ class MovieShow extends Component {
             <div className='small-6 columns'>
               {image}
               {buttonPad}
+            </div>
+          </div>
+          <div>
+            <div className='index-list'>
+              {recs}
             </div>
           </div>
           <div className='back-button-box white-text'>

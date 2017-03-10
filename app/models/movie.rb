@@ -8,8 +8,15 @@ class Movie < ApplicationRecord
   has_many :movie_directors
   has_many :directors, through: :movie_directors
 
-  def recs
-    return get_tastekid_info(title)['Similar']['Results'][0..5]
+  has_many :recs, through: :get_recs, source: :recommendation
+  has_many :get_recs, foreign_key: :recommendation_id, class_name: "Rec"
+
+  # has_many :refs, through: :get_refs, source: :reference
+  # has_many :get_refs, foreign_key: :reference_id, class_name: "Rec"
+
+  def get_recs
+    recs = get_tastekid_info(title)['Similar']['Results']
+    return recs
   end
 
   private
@@ -23,6 +30,5 @@ class Movie < ApplicationRecord
     response = Net::HTTP.get_response(tastekid_uri(query))
     return JSON.parse(response.body)
   end
-
 
 end

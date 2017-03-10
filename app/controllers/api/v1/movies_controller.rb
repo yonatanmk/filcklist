@@ -55,7 +55,7 @@ class Api::V1::MoviesController < ApplicationController
         until recs.length > 0 || @movies.length == 0 do
           if @movies.length > 0
             @movie = @movies.sample
-            recs = @movie.recs
+            recs = @movie.get_recs
             @movies.delete_if { |movie| movie.id == @movie.id }
           end
         end
