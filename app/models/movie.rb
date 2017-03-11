@@ -7,9 +7,11 @@ class Movie < ApplicationRecord
   has_many :actors, through: :movie_actors
   has_many :movie_directors
   has_many :directors, through: :movie_directors
+  has_many :movie_recs
+  has_many :recs, through: :movie_recs
 
-  has_many :recs, through: :get_recs, source: :recommendation
-  has_many :get_recs, foreign_key: :recommendation_id, class_name: "Rec"
+  # has_many :recs, through: :get_recs, source: :recommendation
+  # has_many :get_recs, foreign_key: :recommendation_id, class_name: "Rec"
 
   # has_many :refs, through: :get_refs, source: :reference
   # has_many :get_refs, foreign_key: :reference_id, class_name: "Rec"

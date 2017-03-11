@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310214846) do
+ActiveRecord::Schema.define(version: 20170311183131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20170310214846) do
     t.index ["movie_id"], name: "index_movie_directors_on_movie_id", using: :btree
   end
 
+  create_table "movie_recs", force: :cascade do |t|
+    t.integer "movie_id", null: false
+    t.integer "rec_id",   null: false
+    t.index ["movie_id"], name: "index_movie_recs_on_movie_id", using: :btree
+    t.index ["rec_id"], name: "index_movie_recs_on_rec_id", using: :btree
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "title",                        null: false
     t.string   "poster_path"
@@ -52,10 +59,10 @@ ActiveRecord::Schema.define(version: 20170310214846) do
   end
 
   create_table "recs", force: :cascade do |t|
-    t.integer "reference_id",      null: false
-    t.integer "recommendation_id", null: false
-    t.index ["recommendation_id"], name: "index_recs_on_recommendation_id", using: :btree
-    t.index ["reference_id"], name: "index_recs_on_reference_id", using: :btree
+    t.string  "title",       null: false
+    t.string  "poster_path"
+    t.integer "movie_id",    null: false
+    t.index ["movie_id"], name: "index_recs_on_movie_id", using: :btree
   end
 
   create_table "user_movies", force: :cascade do |t|

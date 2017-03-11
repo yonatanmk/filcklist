@@ -33,6 +33,7 @@ class Api::V1::MoviesController < ApplicationController
           MovieDirector.create(director_id: director['id'], movie_id: @movie.id)
         end
       end
+      
     end
     render json: {}
   end
