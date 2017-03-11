@@ -59,10 +59,8 @@ ActiveRecord::Schema.define(version: 20170311183131) do
   end
 
   create_table "recs", force: :cascade do |t|
-    t.string  "title",       null: false
-    t.string  "poster_path"
-    t.integer "movie_id",    null: false
-    t.index ["movie_id"], name: "index_recs_on_movie_id", using: :btree
+    t.string "title",       null: false
+    t.string "poster_path"
   end
 
   create_table "user_movies", force: :cascade do |t|
