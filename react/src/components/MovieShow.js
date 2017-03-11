@@ -198,8 +198,8 @@ class MovieShow extends Component {
         debugger;
         recs = movie.recs.map((rec) => {
           return (
-            <div>
-              {rec.Name}
+            <div key={rec.id}>
+              {rec.title}
             </div>
           );
         });

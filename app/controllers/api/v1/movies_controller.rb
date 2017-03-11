@@ -41,16 +41,18 @@ class Api::V1::MoviesController < ApplicationController
           end
         end
         #create recs for movie
-        recs = @movie.get_recs
+        recs = @movie.get_recs[0..3]
         recs.each do |rec|
-          rec = get_movie_db_movie_info(rec["Name"])[0]
-          @rec = Rec.new(id: rec['id'], title: rec['title'], poster_path: rec['poster_path'])
-          if Rec.where("id = #{@rec.id}").length == 0
-            if @rec.save
+          rec_db = get_movie_db_movie_info(rec["Name"])
+          unless rec_db.empty?
+            @rec = Rec.new(id: rec_db[0]['id'], title: rec_db[0]['title'], poster_path: rec_db[0]['poster_path'])
+            if Rec.where("id = #{@rec.id}").length == 0
+              if @rec.save
+                MovieRec.create(rec_id: @rec.id, movie_id: @movie.id)
+              end
+            else
               MovieRec.create(rec_id: @rec.id, movie_id: @movie.id)
             end
-          else
-            MovieRec.create(rec_id: @rec.id, movie_id: @movie.id)
           end
         end
       end
