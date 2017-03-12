@@ -111,7 +111,7 @@ class MovieShow extends Component {
       let movie = this.props.selectedMovie;
       let image, cast, directors, castBox, directorBox;
       if (movie.poster_path) {
-        image = <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
+        image = <img className='show-page-img'src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
       }
       cast = this.props.selectedMovie.actors.map((actor)=>{
         let character = this.props.selectedMovie.movie_actors.find((movieActor)=>{return movieActor.actor_id === actor.id;}).character;
@@ -198,9 +198,12 @@ class MovieShow extends Component {
         debugger;
         recs = movie.recs.map((rec) => {
           return (
-            <div key={rec.id}>
-              {rec.title}
-            </div>
+            <IndexMovieBoxContainer
+              key={rec.id}
+              movie={rec}
+              movies={this.props.movies}
+              page="index"
+            />
           );
         });
       }
