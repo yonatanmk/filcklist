@@ -1,6 +1,6 @@
-class Movies < ActiveRecord::Migration[5.0]
+class CreateRecsTable < ActiveRecord::Migration[5.0]
   def change
-    create_table :movies do |t|
+    create_table :recs do |t|
       t.string :title, null: false
       t.string :poster_path
       t.datetime :release_date

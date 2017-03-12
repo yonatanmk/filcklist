@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router';
 import { setSelectedMovie } from '../actions';
 import * as api from '../api';
 
+import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
+
 class MovieShow extends Component {
   constructor(props) {
     super(props);
@@ -109,7 +111,7 @@ class MovieShow extends Component {
       let movie = this.props.selectedMovie;
       let image, cast, directors, castBox, directorBox;
       if (movie.poster_path) {
-        image = <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
+        image = <img className='show-page-img'src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />;
       }
       cast = this.props.selectedMovie.actors.map((actor)=>{
         let character = this.props.selectedMovie.movie_actors.find((movieActor)=>{return movieActor.actor_id === actor.id;}).character;
@@ -191,6 +193,20 @@ class MovieShow extends Component {
         </div>
       );
 
+      let recs;
+      if (movie) {
+        recs = movie.recs.map((rec) => {
+          return (
+            <IndexMovieBoxContainer
+              key={rec.id}
+              movie={rec}
+              movies={this.props.movies}
+              page="index"
+            />
+          );
+        });
+      }
+
       return(
         <div className={className}>
           {boxHeader}
@@ -206,6 +222,10 @@ class MovieShow extends Component {
               {image}
               {buttonPad}
             </div>
+          </div>
+          <div className='show-rec-box'>
+            <h3>{recs.length > 0 ? "Similar Movies" : undefined}</h3>
+              {recs}
           </div>
           <div className='back-button-box white-text'>
             <a id={backId} className='back-button' onClick={browserHistory.goBack}>Back</a>
