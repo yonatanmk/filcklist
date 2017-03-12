@@ -59,8 +59,14 @@ ActiveRecord::Schema.define(version: 20170311183131) do
   end
 
   create_table "recs", force: :cascade do |t|
-    t.string "title",       null: false
-    t.string "poster_path"
+    t.string   "title",                        null: false
+    t.string   "poster_path"
+    t.datetime "release_date"
+    t.text     "overview"
+    t.boolean  "adult",        default: false
+    t.string   "status"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "user_movies", force: :cascade do |t|

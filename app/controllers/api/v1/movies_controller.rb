@@ -12,12 +12,14 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @movie = Movie.new(movie_params)
     @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
     if Movie.where("id = #{@movie.id}").length == 0
       if @movie.save
         #create cast for movie
         @cast = get_movie_db_cast_info(@movie.id)['cast']
+        # binding.pry
         @cast[0..5].each do |actor|
           @actor = Actor.new(id: actor['id'], name: actor['name'], profile_path: actor['profile_path'])
           if Actor.where("id = #{@actor.id}").length == 0
@@ -30,6 +32,7 @@ class Api::V1::MoviesController < ApplicationController
         end
         #create director for movie
         directors = get_movie_db_cast_info(@movie.id)['crew'].select{|employee| employee['job'] == 'Director'}
+        # binding.pry
         directors.each do |director|
           @director = Director.new(id: director['id'], name: director['name'], profile_path: director['profile_path'])
           if Director.where("id = #{@director.id}").length == 0
@@ -42,10 +45,18 @@ class Api::V1::MoviesController < ApplicationController
         end
         #create recs for movie
         recs = @movie.get_recs[0..3]
+        # binding.pry
         recs.each do |rec|
           rec_db = get_movie_db_movie_info(rec["Name"])
           unless rec_db.empty?
-            @rec = Rec.new(id: rec_db[0]['id'], title: rec_db[0]['title'], poster_path: rec_db[0]['poster_path'])
+            @rec = Rec.new(
+              id: rec_db[0]['id'],
+              title: rec_db[0]['title'],
+              poster_path: rec_db[0]['poster_path'],
+              release_date: rec_db[0]['release_date'],
+              overview: rec_db[0]['overview'],
+              adult: rec_db[0]['adult']
+            )
             if Rec.where("id = #{@rec.id}").length == 0
               if @rec.save
                 MovieRec.create(rec_id: @rec.id, movie_id: @movie.id)

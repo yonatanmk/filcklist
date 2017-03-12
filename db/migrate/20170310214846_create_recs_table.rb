@@ -3,6 +3,11 @@ class CreateRecsTable < ActiveRecord::Migration[5.0]
     create_table :recs do |t|
       t.string :title, null: false
       t.string :poster_path
+      t.datetime :release_date
+      t.text :overview
+      t.boolean :adult, default: false
+      t.string :status, default: nil
+      t.timestamps null: false
     end
   end
 end
