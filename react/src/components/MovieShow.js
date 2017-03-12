@@ -195,7 +195,6 @@ class MovieShow extends Component {
 
       let recs;
       if (movie) {
-        debugger;
         recs = movie.recs.map((rec) => {
           return (
             <IndexMovieBoxContainer
@@ -224,10 +223,9 @@ class MovieShow extends Component {
               {buttonPad}
             </div>
           </div>
-          <div>
-            <div className='index-list'>
+          <div className='show-rec-box'>
+            <h3>{recs.length > 0 ? "Similar Movies" : undefined}</h3>
               {recs}
-            </div>
           </div>
           <div className='back-button-box white-text'>
             <a id={backId} className='back-button' onClick={browserHistory.goBack}>Back</a>
