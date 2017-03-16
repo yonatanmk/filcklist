@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import IndexMovieBox from '../components/IndexMovieBox';
-import { setUserMovie, deleteUserMovie, showMovie } from '../actions';
+import { setUserMovie, deleteUserMovie, showMovie, setLoadingAction } from '../actions';
 import * as api from '../api';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleButtonClick: (user, movie, status) => {
+      dispatch(setLoadingAction(movie.id));
       api.addMovie(movie)
       .then(() => {
         dispatch(setUserMovie(user, movie, status));
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
       });
     },
     handleShowButtonClick: (movie) => {
+      dispatch(setLoadingAction(movie.id));
       api.addMovie(movie)
       .then(() => {
         dispatch(showMovie(movie.id));

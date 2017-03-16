@@ -70,3 +70,11 @@ export const setRecAction = (movie) => {
     movie
   };
 };
+
+export const setLoadingAction = (id) => {
+  console.log(id);
+  return {
+    type: 'SET LOADING',
+    id
+  };
+};
