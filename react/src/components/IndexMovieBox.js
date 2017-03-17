@@ -2,7 +2,7 @@ import React from 'react';
 import * as api from '../api';
 import { addUserMovie } from '../actions';
 
-const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
+const IndexMovieBox = ({movie, movies, user, userMovies, page, loading, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
 
   let className = "small-12 medium-6 large-3 columns index-box";
   if (page === 'rec') {
@@ -76,7 +76,9 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, handleShowButtonC
   }
 
   let image_url;
-  if (movie.poster_path) {
+  if (loading === movie.id) {
+    image_url = `https://media3.giphy.com/media/y1ZBcOGOOtlpC/200_s.gif`;
+  } else if (movie.poster_path) {
     image_url = `https://image.tmdb.org/t/p/w185/${movie.poster_path}`;
   } else {
     image_url = `http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`;

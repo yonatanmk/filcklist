@@ -70,3 +70,16 @@ export const setRecAction = (movie) => {
     movie
   };
 };
+
+export const setLoadingAction = (id) => {
+  return {
+    type: 'SET LOADING',
+    id
+  };
+};
+
+export const removeLoadingAction = () => {
+  return {
+    type: 'REMOVE LOADING',
+  };
+};

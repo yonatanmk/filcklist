@@ -81,6 +81,17 @@ let profileStatus = (state = 'want', action ) => {
   }
 };
 
-const appReducer = combineReducers({user, users, userQuery, selectedUser, movies, selectedMovie, rec, profileStatus, firstSearch});
+let loading = (state = null, action ) => {
+  switch (action.type) {
+    case 'SET LOADING':
+      return action.id;
+    case 'REMOVE LOADING':
+      return null;
+    default:
+      return state;
+  }
+};
+
+const appReducer = combineReducers({user, users, userQuery, selectedUser, movies, selectedMovie, rec, profileStatus, firstSearch, loading});
 
 export default appReducer;
