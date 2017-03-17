@@ -15,7 +15,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, loading, handleSh
   }
 
   let userMovie = userMovies.find((userMovie)=>{return userMovie.id == movie.id;});
-  if (userMovie && (page === 'user' || page == 'index' || page == 'rec')) {
+  if (userMovie && (page === 'user' || page == 'index' || page == 'rec' || page == 'show')) {
     movie.status = userMovie.status;
   }
   else if (page !== 'other') {
