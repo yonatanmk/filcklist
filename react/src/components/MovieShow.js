@@ -203,11 +203,17 @@ class MovieShow extends Component {
               key={rec.id}
               movie={rec}
               movies={this.props.movies}
-              page="index"
-              end = {end}
+              page="show"
             />
           );
         });
+      }
+
+      while (recs.length < 4) {
+          recs.push(
+            <div className = "small-12 medium-6 large-3 columns rec-box">
+            </div>
+          );
       }
 
       return(
