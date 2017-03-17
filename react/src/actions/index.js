@@ -72,9 +72,14 @@ export const setRecAction = (movie) => {
 };
 
 export const setLoadingAction = (id) => {
-  console.log(id);
   return {
     type: 'SET LOADING',
     id
+  };
+};
+
+export const removeLoadingAction = () => {
+  return {
+    type: 'REMOVE LOADING',
   };
 };

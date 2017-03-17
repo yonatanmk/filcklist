@@ -85,6 +85,8 @@ let loading = (state = null, action ) => {
   switch (action.type) {
     case 'SET LOADING':
       return action.id;
+    case 'REMOVE LOADING':
+      return null;
     default:
       return state;
   }

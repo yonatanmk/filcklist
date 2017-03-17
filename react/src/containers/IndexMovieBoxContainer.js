@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import IndexMovieBox from '../components/IndexMovieBox';
-import { setUserMovie, deleteUserMovie, showMovie, setLoadingAction } from '../actions';
+import { setUserMovie, deleteUserMovie, showMovie, setLoadingAction, removeLoadingAction } from '../actions';
 import * as api from '../api';
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     movie: ownProps.movie,
     user: state.user.info,
     userMovies: state.user.movies,
-    page: ownProps.page
+    page: ownProps.page,
+    loading: state.loading,
   };
 };
 
@@ -23,7 +24,11 @@ const mapDispatchToProps = (dispatch) => {
       .then(() => {
         dispatch(setUserMovie(user, movie, status));
       })
+      .then(() => {
+        dispatch(removeLoadingAction(movie.id));
+      })
       .catch(error => {
+        dispatch(removeLoadingAction(movie.id));
         console.error(`Error in fetch: ${error.message}`);
       });
     },
@@ -34,7 +39,11 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(showMovie(movie.id));
       })
       .then(()=>{browserHistory.push(`/movies/${movie.id}`);})
+      .then(() => {
+        dispatch(removeLoadingAction(movie.id));
+      })
       .catch(error => {
+        dispatch(removeLoadingAction(movie.id));
         console.error(`Error in fetch: ${error.message}`);
       });
     },
