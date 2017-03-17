@@ -21,10 +21,11 @@ class MovieShow extends Component {
     this.props.dispatch(setSelectedMovie(this.props.params.id));
   }
 
-  componentDidUpdate() {
-  //   if (this.props.selectedMovie && this.props.params.id !== this.props.selectedMovie.id ) {
-  //     this.props.dispatch(setSelectedMovie(this.props.params.id));
-  //   }
+  componentWillReceiveProps(nextProps) {
+    debugger;
+    if (this.props.params.id !== nextProps.params.id ) {
+      this.props.dispatch(setSelectedMovie(nextProps.params.id));
+    }
   }
 
   onWantButtonClick (event) {
