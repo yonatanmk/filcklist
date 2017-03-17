@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     userMovies: state.user.movies,
     page: ownProps.page,
     loading: state.loading,
+    end: ownProps.end,
   };
 };
 

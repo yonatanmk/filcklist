@@ -2,7 +2,7 @@ import React from 'react';
 import * as api from '../api';
 import { addUserMovie } from '../actions';
 
-const IndexMovieBox = ({movie, movies, user, userMovies, page, loading, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
+const IndexMovieBox = ({movie, movies, user, userMovies, page, loading, end, handleShowButtonClick, handleButtonClick, handleDeleteButtonClick}) => {
 
   let className = "small-12 medium-6 large-3 columns index-box";
   if (page === 'rec') {
@@ -10,7 +10,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, page, loading, handleSh
   }
   let innerClassName;
 
-  if (movie == movies[movies.length-1]) {
+  if ( end || movie == movies[movies.length-1]) {
     className += " end";
   }
 

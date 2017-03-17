@@ -196,12 +196,15 @@ class MovieShow extends Component {
       let recs;
       if (movie) {
         recs = movie.recs.map((rec) => {
+          let end;
+          if (rec === movie.recs[movie.recs.length - 1]) end = true;
           return (
             <IndexMovieBoxContainer
               key={rec.id}
               movie={rec}
               movies={this.props.movies}
               page="index"
+              end = {end}
             />
           );
         });
