@@ -10,7 +10,6 @@
 
 ### Author: [Yonatan Meschede-Krasa](https://github.com/yonatanmk)
 
-![Alt Text](Flicklist_screencast_shortened.gif)
 ![MarkdownExplorer](Flicklist_screencast_shortened.gif)
 
 ## Features
