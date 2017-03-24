@@ -6,7 +6,7 @@ const Header = () => {
     <section className="navigation">
       <div className="nav-container">
         <div className="brand">
-          <a href="#!">Logo</a>
+          <a href="/">fLICKlIST</a>
         </div>
         <Navbar />
       </div>
