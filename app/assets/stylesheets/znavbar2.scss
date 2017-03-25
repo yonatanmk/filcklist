@@ -1,5 +1,5 @@
 // Navigation Variables
-$content-width: 1600px;
+$content-width: 90vw;
 $breakpoint: 800px;
 $nav-height: 70px;
 $nav-background: #7C797C;
@@ -104,6 +104,9 @@ nav {
 }
 @media only screen and (max-width: $breakpoint) {
   // Hamburger nav visible on mobile only
+  .nav-container {
+    max-width: 100%;
+  }
   .nav-mobile {
     display: block;
   }
@@ -174,6 +177,8 @@ nav {
     }
   }
 }
+
+
 
 // Page content
 // article {

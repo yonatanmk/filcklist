@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import Dropdown from './Dropdown';
 
 class Navbar extends Component  {
@@ -30,6 +31,10 @@ class Navbar extends Component  {
     }
   }
 
+  handleProfileClick () {
+    browserHistory.push(`/user`);
+  }
+
   render () {
 
     let accountDropdown = [
@@ -38,6 +43,11 @@ class Navbar extends Component  {
       { text: 'Settings', link: '/users/edit', type: 'href' },
       { text: 'Sign Out', link: '/users/sign_out', type: 'href' },
     ];
+
+    let profilePhoto;
+    if (window.innerWidth > 800) {
+      profilePhoto = <img className='profile-photo hover-hand' onClick={this.handleProfileClick} src={this.props.profileURL} />;
+    }
 
     return (
       <nav>
@@ -58,6 +68,9 @@ class Navbar extends Component  {
               setDropdown = { this.setDropdown }
               openDropdown = { this.state.currentDropdown }
             />
+          </li>
+          <li>
+            {profilePhoto}
           </li>
         </ul>
       </nav>
