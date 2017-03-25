@@ -10,6 +10,8 @@ const Header = (props) => {
         </div>
         <Navbar
           profileURL={props.profileURL}
+          userList={props.userList}
+          dispatch={props.dispatch}
         />
       </div>
     </section>
