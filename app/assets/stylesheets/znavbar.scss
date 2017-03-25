@@ -1,0 +1,262 @@
+// Navigation Variables
+$content-width: 90vw;
+$breakpoint: 800px;
+$nav-height: 70px;
+$nav-background: #7C797C;
+$nav-font-color: black;
+$link-hover-background-color: #262626;
+$link-hover-text-color: #FBFBFB;
+$bot-border-width: 3px;
+
+// Outer navigation wrapper
+.navigation {
+  height: $nav-height + $bot-border-width;
+  background: $nav-background;
+  border-bottom: solid;
+  border-color: black;
+}
+
+// Logo and branding
+.brand {
+  position: absolute;
+  margin-top: 5px;
+  padding-left: 20px;
+  float: left;
+  line-height: $nav-height;
+  font-size: 3em;
+
+  font-family: 'Movie Times';
+
+  a {
+    color: $nav-font-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+  }
+}
+
+// Container with no padding for navbar
+.nav-container {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+// Navigation
+nav {
+  float: right;
+  font-family: 'Raleway', sans-serif;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      position: relative;
+      // border-bottom: solid;
+      // border-color: black;
+      a,
+      a:visited {
+        display: block;
+        padding: 0 20px;
+        line-height: $nav-height;
+        background: $nav-background;
+        color: $nav-font-color;
+        text-decoration: none;
+        &:hover {
+          background: $link-hover-background-color;
+          color: $link-hover-text-color;
+        }
+        &:not(:only-child):after {
+          padding-left: 4px;
+        }
+      } // Dropdown list
+      ul li {
+        min-width: 190px;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+// Dropdown list binds to JS toggle event
+.nav-dropdown {
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navigation */
+
+// Binds to JS Toggle
+@media only screen and (max-width: 500px) {
+  .brand {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .brand {
+    font-size: 1.7em;
+  }
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $nav-background;
+  height: $nav-height;
+  width: $nav-height;
+}
+@media only screen and (max-width: $breakpoint) {
+  // Hamburger nav visible on mobile only
+  .nav-container {
+    max-width: 100%;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  nav {
+   width: 100%;
+    padding: $nav-height 0 15px;
+    ul {
+      li {
+        float: none;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+        ul li a {
+          padding-left: 30px;
+        }
+      }
+      &.inactive {
+        display: none;
+      }
+    }
+  }
+  .nav-dropdown {
+    position: static;
+  }
+}
+@media screen and (min-width: $breakpoint) {
+  .nav-list {
+    display: block !important;
+  }
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: $nav-font-color;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+//profile photos
+.profile-photo {
+  margin-top: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+}
+
+.pad-left {
+  margin-left: 20px;
+}
+
+.hover-hand {
+  cursor: pointer;
+}
+
+.hover-hand:hover {
+  border-width: 1px;
+}
+
+// user search box
+.user-box {
+  text-align: center;
+}
+
+.user-search-box {
+  background-color: rgba(122, 119, 121, 0.9);
+  margin-top: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  text-align: center;
+}
+
+.user-search-box * {
+  font-family: 'Raleway', sans-serif;
+}
+
+.user-search-box input {
+  background-color: #252425;
+  color: white;
+  margin-left: 20px;
+}
+
+.user-search-box input:focus {
+  background-color: #252425;
+  color: white;
+}
+
+.user-search-box a {
+  color: black;
+}
+
+.user-search-box a:hover {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.close-button {
+  color: black;
+}
+
+.close-button:hover {
+  color: white;
+}
