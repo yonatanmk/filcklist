@@ -32,18 +32,11 @@ class Navbar extends Component  {
 
   render () {
 
-    let servicesDropdown = [
-      { text: 'Web Design', link: '#!' },
-      { text: 'Web Development', link: '#!' },
-      { text: 'Graphic Design', link: '#!' },
-      { text: 'React.js', link: '#!' },
-      { text: 'Ruby on Rails', link: '#!' },
-    ];
-
-    let portfolioDropdown = [
-      { text: 'Think Pawsitive', link: '#!' },
-      { text: 'Schwamit', link: '#!' },
-      { text: 'FlickList', link: '#!' },
+    let accountDropdown = [
+      { text: 'Your Movies', link: '/user', type: 'router' },
+      { text: 'Movie Recommendations', link: '/recommendation', type: 'router'  },
+      { text: 'Settings', link: '/users/edit', type: 'href' },
+      { text: 'Sign Out', link: '/users/sign_out', type: 'href' },
     ];
 
     return (
@@ -55,34 +48,16 @@ class Navbar extends Component  {
         </div>
         <ul className={`nav-list ${this.state.mobileDisplay}`}>
           <li>
-            <a href="#!">Home</a>
-          </li>
-          <li>
-            <a href="#!">About</a>
+            <a href="#!">Users</a>
           </li>
           <li>
             <Dropdown
               id = { 1 }
-              label = 'Services'
-              items = { servicesDropdown }
+              label = 'Account'
+              items = { accountDropdown }
               setDropdown = { this.setDropdown }
               openDropdown = { this.state.currentDropdown }
             />
-          </li>
-          <li>
-            <a href="#!">Pricing</a>
-          </li>
-          <li>
-            <Dropdown
-              id = { 2 }
-              label = 'Portfolio'
-              items = { portfolioDropdown }
-              setDropdown = { this.setDropdown }
-              openDropdown = { this.state.currentDropdown }
-            />
-          </li>
-          <li>
-            <a href="#!">Contact</a>
           </li>
         </ul>
       </nav>

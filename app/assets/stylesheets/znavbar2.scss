@@ -1,10 +1,11 @@
 // Navigation Variables
-$content-width: 1000px;
+$content-width: 800px;
 $breakpoint: 800px;
 $nav-height: 70px;
 $nav-background: #7C797C;
 $nav-font-color: black;
-$link-hover-color: #2581DC;
+$link-hover-background-color: #262626;
+$link-hover-text-color: #FBFBFB;
 $bot-border-width: 3px;
 
 // Outer navigation wrapper
@@ -41,6 +42,7 @@ $bot-border-width: 3px;
 // Navigation
 nav {
   float: right;
+  font-family: 'Raleway', sans-serif;
   ul {
     list-style: none;
     margin: 0;
@@ -48,8 +50,8 @@ nav {
     li {
       float: left;
       position: relative;
-      border-bottom: solid;
-      border-color: black;
+      // border-bottom: solid;
+      // border-color: black;
       a,
       a:visited {
         display: block;
@@ -59,8 +61,8 @@ nav {
         color: $nav-font-color;
         text-decoration: none;
         &:hover {
-          background: $link-hover-color;
-          color: $nav-font-color;
+          background: $link-hover-background-color;
+          color: $link-hover-text-color;
         }
         &:not(:only-child):after {
           padding-left: 4px;
