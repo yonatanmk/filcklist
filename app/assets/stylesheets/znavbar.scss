@@ -27,12 +27,12 @@ $bot-border-width: 3px;
 
   font-family: 'Movie Times';
 
-  a, a:visited {
+  a {
     color: $nav-font-color;
     text-decoration: none;
   }
 
-  &:hover {
+  a:hover {
     text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
   }
 }
@@ -190,15 +190,73 @@ nav {
   }
 }
 
+//profile photos
+.profile-photo {
+  margin-top: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+}
 
+.pad-left {
+  margin-left: 20px;
+}
 
-// Page content
-// article {
-//   max-width: $content-width;
-//   margin: 0 auto;
-//   padding: 10px;
-// }
-//
-// body {
-//   margin: 0;
-// }
+.hover-hand {
+  cursor: pointer;
+}
+
+.hover-hand:hover {
+  border-width: 1px;
+}
+
+// user search box
+.user-box {
+  text-align: center;
+}
+
+.user-search-box {
+  background-color: rgba(122, 119, 121, 0.9);
+  margin-top: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  text-align: center;
+}
+
+.user-search-box * {
+  font-family: 'Raleway', sans-serif;
+}
+
+.user-search-box input {
+  background-color: #252425;
+  color: white;
+  margin-left: 20px;
+}
+
+.user-search-box input:focus {
+  background-color: #252425;
+  color: white;
+}
+
+.user-search-box a {
+  color: black;
+}
+
+.user-search-box a:hover {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.close-button {
+  color: black;
+}
+
+.close-button:hover {
+  color: white;
+}

@@ -66,40 +66,9 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.index-search-bar {
-  font-family: 'Movie Times';
-  font-size: 30px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #DCD0D2;
-  margin-top: 20px;
-  border-radius: 10px;
-  padding-top: 13px;
-}
-
-.index-search-bar:focus{
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-}
-
-.search-button {
-  font-family: 'Raleway', sans-serif;
-  margin-top: 20px;
-  background-color: #262626;
-  border-color: #CACACA;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-}
-
-.search-button:hover {
-  background-color: #C8C8C8;
-  border: 1px solid grey;
-  color: black;
-}
 
 .index-list {
   padding: 20px;
-  /*background-color: black;*/
 }
 
 .user-search-bar {

@@ -22,7 +22,6 @@ class MovieShow extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if (this.props.params.id !== nextProps.params.id ) {
       this.props.dispatch(setSelectedMovie(nextProps.params.id));
     }

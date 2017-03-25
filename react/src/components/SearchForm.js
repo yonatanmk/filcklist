@@ -1,13 +1,20 @@
 import React from 'react';
 
 const SearchForm = ({handleSearchFormSubmit}) => {
-  let input;
+  let input, placeholder, width;
+  if (window.innerWidth <= 500) {
+    placeholder = 'Search';
+    width = 'small-11';
+  } else {
+    placeholder = 'Search Movies';
+    width = 'small-6';
+  }
   return (
-    <div className='small-6 small-centered columns'>
+    <div className={`${width} small-centered columns`}>
       <div className='content-box'>
         <div className='row'>
-          <div className='small-9 columns'>
-            <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder='Search Movies'/>
+          <div className={'small-9 columns'}>
+            <input className= 'index-search-bar' type='text' ref={node => {input = node;}} placeholder={placeholder}/>
           </div>
           <div className='small-3 columns'>
             <button className='button search-button' onClick={() => {

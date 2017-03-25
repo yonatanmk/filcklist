@@ -79,41 +79,4 @@ class App extends Component {
   }
 }
 
-
 export default App;
-
-
-
-// <div className="top-bar small-12 columns">
-//   <div className="top-bar-left">
-//     <ul className="menu" >
-//       <li className="menu-text"><h1><a href="/" data-close="user-search">fLICKlIST</a></h1></li>
-//     </ul>
-//   </div>
-//   <div className="top-bar-right">
-//     <ul className="dropdown menu" data-dropdown-menu>
-//       <li><a data-open="user-search" onClick={this.handleSearchButtonClick}>Users</a></li>
-//       <li>
-//         <a href="#" className='account-menu-button'>Account</a>
-//         <ul className="menu vertical account-dropdown">
-//           <li><Link to={`/user`} data-close="user-search">Your Movies</Link ></li>
-//           <li><Link to={`/recommendation`} data-close="user-search">You May Like</Link ></li>
-//           <li><a href="/users/edit" data-close="user-search">Settings</a></li>
-//           <li><a href="/users/sign_out" data-method="delete" data-close="user-search" >Sign Out</a></li>
-//         </ul>
-//       </li>
-//       <li><img className='profile-photo hover-hand' onClick={this.handleProfileClick} src={profileURL} /></li>
-//     </ul>
-//   </div>
-// </div>
-// <div className="reveal user-search-box" id="user-search" data-reveal>
-//   <button className="close-button" data-close="user-search">
-//     <span aria-hidden="true">&times;</span>
-//   </button>
-//   <h2>Search Users</h2>
-//   <input className='user-search-bar'type="search" placeholder="Search" onChange={this.handleUserSearchChange}/>
-//   <div className='user-list'>
-//     {userList}
-//   </div>
-// </div>
-// <div className='top-bar-spacer'></div>

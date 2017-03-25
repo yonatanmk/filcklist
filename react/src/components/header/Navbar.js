@@ -54,7 +54,7 @@ class Navbar extends Component  {
 
     let profilePhoto;
     if (window.innerWidth > 800) {
-      profilePhoto = <img className='profile-photo hover-hand' onClick={this.handleProfileClick} src={this.props.profileURL} />;
+      profilePhoto = <img className='profile-photo hover-hand pad-left' onClick={this.handleProfileClick} src={this.props.profileURL} />;
     }
 
     return (
