@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
+import NavbarContainer from './NavbarContainer';
 
 const Header = (props) => {
   return (
@@ -8,11 +8,7 @@ const Header = (props) => {
         <div className="brand">
           <a href="/">fLICKlIST</a>
         </div>
-        <Navbar
-          profileURL={props.profileURL}
-          userList={props.userList}
-          dispatch={props.dispatch}
-        />
+        <NavbarContainer />
       </div>
     </section>
   );

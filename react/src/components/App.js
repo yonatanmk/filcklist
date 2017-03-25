@@ -70,11 +70,7 @@ class App extends Component {
 
     return (
       <div>
-        <Header
-          profileURL={profileURL}
-          userList={userList}
-          dispatch={this.props.dispatch}
-        />
+        <Header />
         <div className='content'>
           {this.props.children}
         </div>
