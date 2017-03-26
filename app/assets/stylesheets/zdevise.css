@@ -60,15 +60,21 @@
   margin-left: 10%;
 }
 
-@media (min-width: 611px) {
-  .title {
-    font-size: 70px;
-  }
+@media (max-width: 500px) {
   .ebert-quote{
-    font-size: 40px;
+    width: 100%;
+  }
+  .devise-box {
+    right: auto;
+    bottom: auto;
+    width: 95%;
+    position: static;
+    margin: auto;
+    margin-top: 150px;
   }
 }
-@media (max-width: 610px) {
+
+@media (max-width: 810px) {
   .title {
     font-size: 40px;
   }
